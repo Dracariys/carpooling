@@ -12,6 +12,8 @@
 		E77F1BC01F069DB0006FBC60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BBE1F069DB0006FBC60 /* Main.storyboard */; };
 		E77F1BC21F069DB0006FBC60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BC11F069DB0006FBC60 /* Assets.xcassets */; };
 		E77F1BC51F069DB0006FBC60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BC31F069DB0006FBC60 /* LaunchScreen.storyboard */; };
+		E77F1BCD1F06A103006FBC60 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BCC1F06A103006FBC60 /* SecondStoryboard.storyboard */; };
+		E77F1BD21F06A143006FBC60 /* ThirdStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BD11F06A143006FBC60 /* ThirdStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		E77F1BC11F069DB0006FBC60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E77F1BC41F069DB0006FBC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E77F1BC61F069DB0006FBC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E77F1BCC1F06A103006FBC60 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SecondStoryboard.storyboard; path = ../SecondStoryboard.storyboard; sourceTree = "<group>"; };
+		E77F1BD11F06A143006FBC60 /* ThirdStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ThirdStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,40 @@
 		E77F1BB91F069DB0006FBC60 /* CarPooling */ = {
 			isa = PBXGroup;
 			children = (
+				E77F1BCE1F06A10B006FBC60 /* Model */,
+				E77F1BCF1F06A11F006FBC60 /* View */,
 				E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */,
-				E77F1BBC1F069DB0006FBC60 /* ViewController.swift */,
-				E77F1BBE1F069DB0006FBC60 /* Main.storyboard */,
+				E77F1BD01F06A12B006FBC60 /* Controller */,
 				E77F1BC11F069DB0006FBC60 /* Assets.xcassets */,
-				E77F1BC31F069DB0006FBC60 /* LaunchScreen.storyboard */,
 				E77F1BC61F069DB0006FBC60 /* Info.plist */,
 			);
 			path = CarPooling;
+			sourceTree = "<group>";
+		};
+		E77F1BCE1F06A10B006FBC60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E77F1BCF1F06A11F006FBC60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E77F1BC31F069DB0006FBC60 /* LaunchScreen.storyboard */,
+				E77F1BCC1F06A103006FBC60 /* SecondStoryboard.storyboard */,
+				E77F1BD11F06A143006FBC60 /* ThirdStoryboard.storyboard */,
+				E77F1BBE1F069DB0006FBC60 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E77F1BD01F06A12B006FBC60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E77F1BBC1F069DB0006FBC60 /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +156,9 @@
 			files = (
 				E77F1BC51F069DB0006FBC60 /* LaunchScreen.storyboard in Resources */,
 				E77F1BC21F069DB0006FBC60 /* Assets.xcassets in Resources */,
+				E77F1BD21F06A143006FBC60 /* ThirdStoryboard.storyboard in Resources */,
 				E77F1BC01F069DB0006FBC60 /* Main.storyboard in Resources */,
+				E77F1BCD1F06A103006FBC60 /* SecondStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +334,7 @@
 				E77F1BCB1F069DB0006FBC60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
