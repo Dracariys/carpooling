@@ -7,23 +7,67 @@
 //
 
 import Foundation
-import CoreLocation
-import MapKit
-
+import UIKit
 
 class Driver {
     
     
-    let name: String
-    let id: String
-    let phone: String?
-    let image: UIImage?
-    let ranking: Double?
+    var name: String
+    var id: String
+    var phone: String?
+    var image: UIImage?
+    var rankings: [Double]
+    var age: Int?
+    var role: String?
+    var yearsOfExperience: Int?
     
     
+    init(id: String){
+        
+        self.id = id
+        name = ""
+        phone = ""
+        image = #imageLiteral(resourceName: "omino")
+        rankings = []
+        age = 0
+        role = ""
+        yearsOfExperience = 0
+        
+        
+    }
     
+    init(id: String, name: String) {
+        
+        self.name = name
+        self.id = id
+        phone = ""
+        image = #imageLiteral(resourceName: "omino")
+        rankings = []
+        age = 0
+        role = ""
+        yearsOfExperience = 0
+        
+        
+        
+    }
     
+    func getAverageRanking()->Double{
+        
+        var sum = 0.0
+        
+        for num in rankings {
+            
+            sum += num
+            
+        }
+        
+        return sum / Double(rankings.count)
+        
+        
+    }
     
+   
+
     
     
 }

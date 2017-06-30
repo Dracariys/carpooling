@@ -16,8 +16,8 @@
 		E77F1BCD1F06A103006FBC60 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BCC1F06A103006FBC60 /* SecondStoryboard.storyboard */; };
 		E77F1BD21F06A143006FBC60 /* ThirdStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BD11F06A143006FBC60 /* ThirdStoryboard.storyboard */; };
 		E77F1BD41F06A376006FBC60 /* HDAugmentedReality in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BD31F06A376006FBC60 /* HDAugmentedReality */; };
-		E77F1BD61F06A7AF006FBC60 /* Auto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BD51F06A7AF006FBC60 /* Auto.swift */; };
-		E77F1BDA1F06A7D7006FBC60 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BD91F06A7D7006FBC60 /* Places.swift */; };
+		E77F1BD61F06A7AF006FBC60 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BD51F06A7AF006FBC60 /* Car.swift */; };
+		E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BD91F06A7D7006FBC60 /* Place.swift */; };
 		E77F1BDC1F06A7F6006FBC60 /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BDB1F06A7F6006FBC60 /* Travel.swift */; };
 		E77F1BDE1F06A8D7006FBC60 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -34,8 +34,8 @@
 		E77F1BCC1F06A103006FBC60 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SecondStoryboard.storyboard; path = ../SecondStoryboard.storyboard; sourceTree = "<group>"; };
 		E77F1BD11F06A143006FBC60 /* ThirdStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ThirdStoryboard.storyboard; sourceTree = "<group>"; };
 		E77F1BD31F06A376006FBC60 /* HDAugmentedReality */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HDAugmentedReality; sourceTree = "<group>"; };
-		E77F1BD51F06A7AF006FBC60 /* Auto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auto.swift; sourceTree = "<group>"; };
-		E77F1BD91F06A7D7006FBC60 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		E77F1BD51F06A7AF006FBC60 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		E77F1BD91F06A7D7006FBC60 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		E77F1BDB1F06A7F6006FBC60 /* Travel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
 		E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				E77F1BD31F06A376006FBC60 /* HDAugmentedReality */,
-				E77F1BD51F06A7AF006FBC60 /* Auto.swift */,
-				E77F1BD91F06A7D7006FBC60 /* Places.swift */,
+				E77F1BD51F06A7AF006FBC60 /* Car.swift */,
+				E77F1BD91F06A7D7006FBC60 /* Place.swift */,
 				E77F1BDB1F06A7F6006FBC60 /* Travel.swift */,
 				E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */,
 				B89291831F06AC35000F8131 /* Driver.swift */,
@@ -190,10 +190,10 @@
 			files = (
 				E77F1BBD1F069DB0006FBC60 /* ViewController.swift in Sources */,
 				B89291841F06AC35000F8131 /* Driver.swift in Sources */,
-				E77F1BDA1F06A7D7006FBC60 /* Places.swift in Sources */,
+				E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */,
 				E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */,
 				E77F1BDC1F06A7F6006FBC60 /* Travel.swift in Sources */,
-				E77F1BD61F06A7AF006FBC60 /* Auto.swift in Sources */,
+				E77F1BD61F06A7AF006FBC60 /* Car.swift in Sources */,
 				E77F1BDE1F06A8D7006FBC60 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

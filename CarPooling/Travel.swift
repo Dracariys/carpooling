@@ -9,3 +9,43 @@
 import Foundation
 import CoreLocation
 import MapKit
+
+
+class Travel{
+    
+    
+    
+    var car: Car
+    var startLocation: CLLocation
+    var stopLocation: CLLocation
+    var startTime:
+    var stopTime:
+    var distance: Double?
+    var travelTime:
+    var chilometriRisparmiati: Double?
+    var consumiRisparmiati: Double?
+    var emissioniCO2Evitate: Double?
+    var feedback: String?
+    
+    init(car: Car, startLocation: CLLocation, stopLocation: CLLocation, startTime: , stopTime: ){
+        
+        
+        self.car = car
+        self.startLocation = startLocation
+        self.stopLocation = stopLocation
+        self.startTime = startTime
+        self.stopTime = stopTime
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+}
