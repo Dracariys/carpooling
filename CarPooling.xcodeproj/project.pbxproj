@@ -20,6 +20,7 @@
 		E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BD91F06A7D7006FBC60 /* Place.swift */; };
 		E77F1BDC1F06A7F6006FBC60 /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BDB1F06A7F6006FBC60 /* Travel.swift */; };
 		E77F1BDE1F06A8D7006FBC60 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */; };
+		E7F6A69F1F0797BE00605AB8 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F6A69E1F0797BE00605AB8 /* PlaceAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E77F1BD91F06A7D7006FBC60 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		E77F1BDB1F06A7F6006FBC60 /* Travel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
 		E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E7F6A69E1F0797BE00605AB8 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 			children = (
 				E77F1BCE1F06A10B006FBC60 /* Model */,
 				E77F1BCF1F06A11F006FBC60 /* View */,
-				E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */,
 				E77F1BD01F06A12B006FBC60 /* Controller */,
 				E77F1BC11F069DB0006FBC60 /* Assets.xcassets */,
 				E77F1BC61F069DB0006FBC60 /* Info.plist */,
@@ -87,6 +88,7 @@
 				E77F1BD51F06A7AF006FBC60 /* Car.swift */,
 				E77F1BD91F06A7D7006FBC60 /* Place.swift */,
 				E77F1BDB1F06A7F6006FBC60 /* Travel.swift */,
+				E7F6A69E1F0797BE00605AB8 /* PlaceAnnotation.swift */,
 				E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */,
 				B89291831F06AC35000F8131 /* Driver.swift */,
 			);
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E77F1BBC1F069DB0006FBC60 /* ViewController.swift */,
+				E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F6A69F1F0797BE00605AB8 /* PlaceAnnotation.swift in Sources */,
 				E77F1BBD1F069DB0006FBC60 /* ViewController.swift in Sources */,
 				B89291841F06AC35000F8131 /* Driver.swift in Sources */,
 				E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */,
