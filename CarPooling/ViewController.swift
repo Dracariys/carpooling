@@ -173,6 +173,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             messageService.sendToAll(message: currentUser)
+            //newuser
             self.refreshCar()
         }
     }
