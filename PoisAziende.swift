@@ -14,3 +14,5 @@ let POISAziendali : [Place] = [
     Place(address: "Trav. Strettola S.Anna alle Paludi 11", location: CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788), locationName: "Sede Napoli"),
     Place(address: "Piazza Garibaldi  14", location: CLLocationCoordinate2D(latitude:40.838443, longitude:8.402086), locationName: "Sede Sassari")
 ]
+
+// roba
