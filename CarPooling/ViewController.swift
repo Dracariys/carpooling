@@ -20,8 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var veicles : [(Car,CarAnnotation)] = []
 
+    @IBAction func showProfile(_ sender: Any) {
+        
+        performSegue(withIdentifier: "profileSegue", sender: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self)
         mapView.delegate=self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
