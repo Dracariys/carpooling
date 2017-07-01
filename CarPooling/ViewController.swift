@@ -26,7 +26,7 @@ var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.9
 var DROPLOCATION : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345)]
 
 let messageService = MessageServiceManager(serviceName: "ShareSeat")
-// update
+// up
 class ViewController: UIViewController, MessageServiceManagerDelegate {
     fileprivate var POIS = [Place]()
     fileprivate let locationManager = CLLocationManager()
