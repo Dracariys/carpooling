@@ -85,7 +85,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: false)
         loadPoisAziendali()
-        makeTravel()
+        makeTravel([])
         generateVeicle(3)
         refreshCar()
         messageService.sendToAll(message: "paolo")
