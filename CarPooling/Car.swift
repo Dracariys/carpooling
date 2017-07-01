@@ -27,6 +27,8 @@ class Car {
     var max_posti: Int
     var passeggeri: [User] = []
     var haPostiLiberi = true
+    var route : [CLLocationCoordinate2D] = []
+    var routePlace : Int = 2
     
     
     init(name: String){
