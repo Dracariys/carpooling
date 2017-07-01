@@ -27,8 +27,10 @@ class CarAnnotation: NSObject, MKAnnotation {
         coordinate=car.position
         title=car.name
         var passeggeri = ""
+        if car.passeggeri != nil {
         for elem in car.passeggeri {
             passeggeri.append(elem.name)
+        }
         }
         subtitle=passeggeri
         super.init()
