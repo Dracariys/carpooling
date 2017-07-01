@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 6" translatesAutoresizingMaskIntoConstraints="NO" id="1kU-oz-uMb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome Utente / ID" textAlignment="center" minimumFontSize="17" background="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="KTh-tI-soJ">
+                                <rect key="frame" x="69" y="307" width="236" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" background="Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="vCM-ej-fgC">
+                                <rect key="frame" x="69" y="365" width="236" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOK-F0-TAx">
+                                <rect key="frame" x="69" y="593" width="236" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Registrati" backgroundImage="Rectangle 12">
+                                    <color key="titleColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Page 1-3" translatesAutoresizingMaskIntoConstraints="NO" id="5cS-au-txD">
+                                <rect key="frame" x="72" y="47" width="230" height="230"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJa-bi-Kz6">
+                                <rect key="frame" x="72" y="431" width="236" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Login" backgroundImage="Rectangle 8">
+                                    <color key="titleColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J9j-Wz-CSg" kind="show" id="IIU-IB-jMq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Seleziona Punto di Partenza-->
+        <scene sceneID="oZL-PE-4Wd">
+            <objects>
+                <viewController id="axG-Ug-KIY" customClass="CollectionViewPartenza" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XqH-l3-614"/>
+                        <viewControllerLayoutGuide type="bottom" id="A6B-r9-PAM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q39-yu-iIl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ER1-EF-i5V">
+                                <rect key="frame" x="16" y="164" width="343" height="503"/>
+                                <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="14" id="SEN-8s-QcO">
+                                    <size key="itemSize" width="151" height="161"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cella" id="ud4-Ks-uOF" customClass="PartenzaCell" customModule="CarPooling" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="161"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="151" height="161"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Aw-q0-FV2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="121"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="celletta" translatesAutoresizingMaskIntoConstraints="NO" id="QD8-w6-VNz">
+                                                    <rect key="frame" x="0.0" y="119" width="150" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-eY-U9q">
+                                                    <rect key="frame" x="0.0" y="129" width="150" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="partenzaImage" destination="3Aw-q0-FV2" id="bmw-nR-g7S"/>
+                                            <outlet property="partenzaLabel" destination="8Kf-eY-U9q" id="n4u-7c-B6b"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="axG-Ug-KIY" id="cqt-Ad-gLC"/>
+                                    <outlet property="delegate" destination="axG-Ug-KIY" id="Sbk-uc-3p5"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wjd-af-8DZ">
+                                <rect key="frame" x="0.0" y="95" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGc-9Y-I8z">
+                                <rect key="frame" x="0.0" y="35" width="46" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <segue destination="J9j-Wz-CSg" kind="show" id="HoU-g2-mD2"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="richiedipassaggio3" translatesAutoresizingMaskIntoConstraints="NO" id="ivD-gd-1CO">
+                                <rect key="frame" x="164" y="28" width="46" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Partenza" translatesAutoresizingMaskIntoConstraints="NO" id="8mT-B8-zaz">
+                                <rect key="frame" x="164" y="74" width="46" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ER1-EF-i5V" firstAttribute="top" secondItem="XqH-l3-614" secondAttribute="bottom" constant="144" id="1zA-f6-sPy"/>
+                            <constraint firstAttribute="trailing" secondItem="ER1-EF-i5V" secondAttribute="trailing" constant="16" id="GaY-88-xgM"/>
+                            <constraint firstItem="ER1-EF-i5V" firstAttribute="leading" secondItem="Q39-yu-iIl" secondAttribute="leading" constant="16" id="leU-EO-MdS"/>
+                            <constraint firstItem="A6B-r9-PAM" firstAttribute="top" secondItem="ER1-EF-i5V" secondAttribute="bottom" id="vT8-k6-VzW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Seleziona Punto di Partenza" id="5Ms-c3-3l3"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ER1-EF-i5V" id="V0u-bW-PPU"/>
+                        <segue destination="NEe-eY-rmV" kind="show" identifier="partenzaToArrivoSegue" id="s4e-zP-MvS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zjc-TU-xwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4676" y="-340.47976011994007"/>
+        </scene>
+        <!--Seleziona Punto di Arrivo-->
+        <scene sceneID="v4O-rc-76s">
+            <objects>
+                <viewController title="Seleziona Punto di Arrivo" id="NEe-eY-rmV" customClass="CollectionViewArrivo" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2kn-fb-SMu"/>
+                        <viewControllerLayoutGuide type="bottom" id="HzM-C5-cvr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fs8-NW-pzZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iW8-KT-SFh">
+                                <rect key="frame" x="16" y="164" width="343" height="503"/>
+                                <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g0h-OY-Aeb">
+                                    <size key="itemSize" width="150" height="161"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellaArrivo" id="8Za-AE-UO3" customClass="ArrivoCell" customModule="CarPooling" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="161"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="161"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6I-gK-aJI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="121"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="celletta" translatesAutoresizingMaskIntoConstraints="NO" id="fhm-Tw-SW2">
+                                                    <rect key="frame" x="0.0" y="119" width="150" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yaw-of-kqr">
+                                                    <rect key="frame" x="0.0" y="129" width="150" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="arrivoImage" destination="e6I-gK-aJI" id="dsz-g1-RYG"/>
+                                            <outlet property="arrivoLabel" destination="Yaw-of-kqr" id="nZh-bX-PT5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="NEe-eY-rmV" id="51K-I5-X87"/>
+                                    <outlet property="delegate" destination="NEe-eY-rmV" id="Byx-SQ-3ro"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQ1-Bc-EIm">
+                                <rect key="frame" x="0.0" y="95" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdu-3x-O4r">
+                                <rect key="frame" x="0.0" y="31" width="46" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <segue destination="axG-Ug-KIY" kind="show" id="TZj-pk-wl3"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="richiedipassaggio3" translatesAutoresizingMaskIntoConstraints="NO" id="1MI-Mq-57u">
+                                <rect key="frame" x="164" y="28" width="46" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arrivo" translatesAutoresizingMaskIntoConstraints="NO" id="a5s-7w-8WR">
+                                <rect key="frame" x="164" y="75" width="46" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iW8-KT-SFh" secondAttribute="trailing" constant="16" id="8na-0P-qaR"/>
+                            <constraint firstItem="HzM-C5-cvr" firstAttribute="top" secondItem="iW8-KT-SFh" secondAttribute="bottom" id="FCA-iT-kS2"/>
+                            <constraint firstItem="iW8-KT-SFh" firstAttribute="top" secondItem="2kn-fb-SMu" secondAttribute="bottom" constant="144" id="XOf-zC-RnI"/>
+                            <constraint firstItem="iW8-KT-SFh" firstAttribute="leading" secondItem="fs8-NW-pzZ" secondAttribute="leading" constant="16" id="s0a-fs-gwe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="x6b-WM-QHq" kind="show" identifier="driversListSegue" id="PTm-Wr-GGg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qez-Ml-r1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5472.8000000000002" y="-340.47976011994007"/>
+        </scene>
+        <!--Lista Di Drivers View Controller-->
+        <scene sceneID="Y5h-ak-cBO">
+            <objects>
+                <viewController id="x6b-WM-QHq" customClass="ListaDiDriversViewController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tlx-y2-VsK"/>
+                        <viewControllerLayoutGuide type="bottom" id="XFN-V2-RgU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kky-SV-dXw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="181" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KOu-He-4UJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="driverCell" rowHeight="181" id="9mi-Hg-BKH" customClass="DriverDetailsCell" customModule="CarPooling" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="181"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9mi-Hg-BKH" id="Dl2-7z-had">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoZ-c8-mog">
+                                                    <rect key="frame" x="8" y="15" width="150" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome e cognome" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2ay-7d-sWm">
+                                                    <rect key="frame" x="195" y="57" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distanza" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="U4a-b2-OMZ">
+                                                    <rect key="frame" x="192" y="115" width="175" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bdh-2f-KKs">
+                                                    <rect key="frame" x="192" y="144" width="175" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matricola" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HQI-9s-gME">
+                                                    <rect key="frame" x="195" y="86" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vwk-Pm-nRw">
+                                                    <rect key="frame" x="195" y="15" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="carImage" destination="yoZ-c8-mog" id="ub2-yg-6N3"/>
+                                            <outlet property="carName" destination="Vwk-Pm-nRw" id="inO-Qd-m3g"/>
+                                            <outlet property="distanceLabel" destination="U4a-b2-OMZ" id="DI4-3K-y8Z"/>
+                                            <outlet property="driverName" destination="2ay-7d-sWm" id="ID4-5H-VwT"/>
+                                            <outlet property="idLabel" destination="HQI-9s-gME" id="H1T-3e-f5M"/>
+                                            <outlet property="rankLabel" destination="bdh-2f-KKs" id="8pv-yq-z8W"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="x6b-WM-QHq" id="kjn-PQ-mR5"/>
+                                    <outlet property="delegate" destination="x6b-WM-QHq" id="1xG-Nk-gJ1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OmX-e5-Kg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6550" y="-340"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sjW-O0-MQC">
+            <objects>
+                <viewController id="Xol-VN-kuq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hyS-U7-DcT"/>
+                        <viewControllerLayoutGuide type="bottom" id="GHq-Wf-bJo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vUH-8G-57Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="se6-1h-csU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7729" y="241"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jFt-xl-LpN">
+            <objects>
+                <viewController id="J9j-Wz-CSg" customClass="ViewController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rCt-6F-K7o"/>
+                        <viewControllerLayoutGuide type="bottom" id="2IB-4F-Log"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4rD-Wq-Wvx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZLa-49-Quy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gDW-04-laH">
+                                <rect key="frame" x="30" y="514" width="312" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 3" translatesAutoresizingMaskIntoConstraints="NO" id="cg2-Bc-bVN">
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="106"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7Q-XH-ohd">
+                                        <rect key="frame" x="18" y="18" width="65" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Viaggio" image="Page 1-1"/>
+                                        <connections>
+                                            <segue destination="8QB-an-eQq" kind="show" id="wly-rg-1hm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLT-IC-Jvb">
+                                        <rect key="frame" x="235" y="18" width="62" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="richiedipassaggio3">
+                                            <color key="titleColor" red="0.34045490622520447" green="0.032441496849060059" blue="0.92924672365188599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="axG-Ug-KIY" kind="show" id="KaO-rS-43S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-9b-8Wm">
+                                        <rect key="frame" x="135" y="23" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Utente" image="Page 1"/>
+                                        <connections>
+                                            <action selector="showProfile:" destination="J9j-Wz-CSg" eventType="touchUpInside" id="y5v-31-cpU"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Passaggio" translatesAutoresizingMaskIntoConstraints="NO" id="Ezk-T0-gIc">
+                                        <rect key="frame" x="236" y="81" width="60" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Utente" translatesAutoresizingMaskIntoConstraints="NO" id="IZb-p8-kx9">
+                                        <rect key="frame" x="138" y="81" width="45" height="13"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Viaggio" translatesAutoresizingMaskIntoConstraints="NO" id="Nuk-kk-3oP">
+                                        <rect key="frame" x="23" y="81" width="55" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 4" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-rD-Ubn">
+                                        <rect key="frame" x="107" y="8" width="2" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 4" translatesAutoresizingMaskIntoConstraints="NO" id="bEX-Ne-7uo">
+                                        <rect key="frame" x="208" y="8" width="2" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZLa-49-Quy" id="nqS-HT-LVn"/>
+                        <segue destination="tsK-FK-y0J" kind="show" identifier="profileSegue" id="sD2-wc-Lod"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pi-3r-i1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3010" y="722"/>
+        </scene>
+        <!--Info Utente-->
+        <scene sceneID="aD6-c4-cvL">
+            <objects>
+                <viewController id="tsK-FK-y0J" userLabel="Info Utente" customClass="InfoUtente" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QGG-l1-6vc"/>
+                        <viewControllerLayoutGuide type="bottom" id="28l-Ch-5q9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yiw-gL-HnO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="driver" translatesAutoresizingMaskIntoConstraints="NO" id="9K8-NZ-JsH">
+                                <rect key="frame" x="109" y="79" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rick D. Rector" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9Y-cW-2Iz">
+                                <rect key="frame" x="62" y="261" width="250" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developer Academy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chX-04-uDk">
+                                <rect key="frame" x="62" y="290" width="250" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Premi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyc-Vv-yXn">
+                                <rect key="frame" x="62" y="355" width="240" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Premi successivi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWZ-2n-0AI">
+                                <rect key="frame" x="62" y="566" width="128" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="333 43 21 576" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emf-Qg-wck">
+                                <rect key="frame" x="62" y="319" width="250" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="h9Y-cW-2Iz" id="nY5-Dr-eTR"/>
+                        <outlet property="profileImage" destination="9K8-NZ-JsH" id="bgf-j5-nbB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ij-gm-Lmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3009" y="-535"/>
+        </scene>
+        <!--Partenza Viaggio Controller-->
+        <scene sceneID="D6f-cE-64h">
+            <objects>
+                <viewController id="8QB-an-eQq" customClass="PartenzaViaggioController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t0j-QE-czZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rRS-ag-tm4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1jI-NP-kmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q3k-wq-5bk">
+                                <rect key="frame" x="16" y="164" width="343" height="503"/>
+                                <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aUx-6g-IxF">
+                                    <size key="itemSize" width="150" height="163"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cella" id="2Ut-QT-jm9" customClass="PartenzaCell" customModule="CarPooling" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="163"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="163"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-fS-KM3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="121"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="celletta" translatesAutoresizingMaskIntoConstraints="NO" id="EDw-Bk-Qoh">
+                                                    <rect key="frame" x="0.0" y="121" width="151" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1m-IE-fMQ">
+                                                    <rect key="frame" x="0.0" y="129" width="150" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="partenzaImage" destination="gRz-fS-KM3" id="fGL-Gw-6aG"/>
+                                            <outlet property="partenzaLabel" destination="t1m-IE-fMQ" id="Jy7-ME-pJj"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="8QB-an-eQq" id="2YQ-zY-7CO"/>
+                                    <outlet property="delegate" destination="8QB-an-eQq" id="7Rf-DF-Zf8"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-fW-uUv">
+                                <rect key="frame" x="0.0" y="95" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-ic-BnI">
+                                <rect key="frame" x="0.0" y="35" width="46" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <segue destination="J9j-Wz-CSg" kind="show" id="cMt-Uj-AmH"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Page 1-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Q5-kX-pHz">
+                                <rect key="frame" x="164" y="28" width="46" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Partenza" translatesAutoresizingMaskIntoConstraints="NO" id="B2M-aK-Qr3">
+                                <rect key="frame" x="164" y="74" width="46" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Q3k-wq-5bk" firstAttribute="leading" secondItem="1jI-NP-kmQ" secondAttribute="leading" constant="16" id="9tp-S2-2Mb"/>
+                            <constraint firstItem="Q3k-wq-5bk" firstAttribute="top" secondItem="t0j-QE-czZ" secondAttribute="bottom" constant="144" id="cdf-wf-4Lj"/>
+                            <constraint firstItem="rRS-ag-tm4" firstAttribute="top" secondItem="Q3k-wq-5bk" secondAttribute="bottom" id="nBM-ZW-aLR"/>
+                            <constraint firstAttribute="trailing" secondItem="Q3k-wq-5bk" secondAttribute="trailing" constant="16" id="ynF-Pc-qIX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Q3k-wq-5bk" id="iPW-qc-1XL"/>
+                        <segue destination="DeR-eO-nom" kind="show" identifier="partenzaToArrivoSegue2" id="grl-Qo-SRG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xA-qH-YZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4432.8000000000002" y="808.24587706146929"/>
+        </scene>
+        <!--Seleziona Punto di Arrivo-->
+        <scene sceneID="Oo1-nE-KtC">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzW-9W-dIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Seleziona Punto di Arrivo" id="DeR-eO-nom" customClass="ArrivoViaggioController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S5A-du-Nv3"/>
+                        <viewControllerLayoutGuide type="bottom" id="fP3-bU-sqT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wys-4a-fqV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ws7-J6-3xp">
+                                <rect key="frame" x="16" y="164" width="343" height="503"/>
+                                <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x1X-VU-6CB">
+                                    <size key="itemSize" width="150" height="164"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellaArrivo" id="eFc-3A-t3a" customClass="ArrivoCell" customModule="CarPooling" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="164"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vMF-Zt-e1Q">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="121"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="celletta" translatesAutoresizingMaskIntoConstraints="NO" id="ohc-i3-vKm">
+                                                    <rect key="frame" x="0.0" y="122" width="150" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QR7-sm-hSZ">
+                                                    <rect key="frame" x="0.0" y="129" width="150" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="arrivoImage" destination="vMF-Zt-e1Q" id="AB5-b4-siO"/>
+                                            <outlet property="arrivoLabel" destination="QR7-sm-hSZ" id="h0F-me-90b"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="DeR-eO-nom" id="IZZ-GU-AFX"/>
+                                    <outlet property="delegate" destination="DeR-eO-nom" id="QKB-b3-x9n"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tzd-9N-d4h">
+                                <rect key="frame" x="0.0" y="95" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYC-aQ-W93">
+                                <rect key="frame" x="0.0" y="35" width="46" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <segue destination="8QB-an-eQq" kind="show" id="vd8-eZ-jsk"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Page 1-1" translatesAutoresizingMaskIntoConstraints="NO" id="uHi-7y-eWc">
+                                <rect key="frame" x="164" y="28" width="46" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arrivo" translatesAutoresizingMaskIntoConstraints="NO" id="m7N-Se-AiC">
+                                <rect key="frame" x="164" y="74" width="46" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fP3-bU-sqT" firstAttribute="top" secondItem="Ws7-J6-3xp" secondAttribute="bottom" id="BpG-ai-Xm0"/>
+                            <constraint firstItem="Ws7-J6-3xp" firstAttribute="leading" secondItem="Wys-4a-fqV" secondAttribute="leading" constant="16" id="Hfg-CF-dta"/>
+                            <constraint firstItem="Ws7-J6-3xp" firstAttribute="top" secondItem="S5A-du-Nv3" secondAttribute="bottom" constant="144" id="Uz7-uf-Gmv"/>
+                            <constraint firstAttribute="trailing" secondItem="Ws7-J6-3xp" secondAttribute="trailing" constant="16" id="wbp-TY-Eb8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="SR8-sZ-Im2" kind="show" identifier="carsAvailableListSegue" id="uTU-YU-ZPF"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="5472.8000000000002" y="807.34632683658174"/>
+        </scene>
+        <!--Cars Available Viaggio Controller-->
+        <scene sceneID="YL2-r2-CUj">
+            <objects>
+                <viewController id="SR8-sZ-Im2" customClass="CarsAvailableViaggioController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TWQ-QZ-rhq"/>
+                        <viewControllerLayoutGuide type="bottom" id="QQv-xF-SEd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xca-xw-qsG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="181" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qlT-N0-a1q">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="carCell" rowHeight="181" id="HZR-Q3-ENP" userLabel="carsAvailableCell" customClass="CarsAvailableCell" customModule="CarPooling" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="181"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HZR-Q3-ENP" id="Jn0-SX-nn6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efp-fn-CIP">
+                                                    <rect key="frame" x="8" y="15" width="150" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SW3-Q6-WqJ">
+                                                    <rect key="frame" x="195" y="36" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POI" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CfM-Ma-gDL">
+                                                    <rect key="frame" x="195" y="65" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Consumi" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zlQ-9s-y7c">
+                                                    <rect key="frame" x="195" y="94" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="autoName" destination="SW3-Q6-WqJ" id="S5P-Ga-fSy"/>
+                                            <outlet property="carImage" destination="efp-fn-CIP" id="BAo-Ut-yqJ"/>
+                                            <outlet property="consumi" destination="zlQ-9s-y7c" id="cOl-cj-zVW"/>
+                                            <outlet property="pointOfInt" destination="CfM-Ma-gDL" id="zQA-BN-I2X"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SR8-sZ-Im2" id="txE-X2-vpZ"/>
+                                    <outlet property="delegate" destination="SR8-sZ-Im2" id="O4O-Ky-4l9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOT-l0-epW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6550" y="807"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Arrivo" width="105" height="33"/>
+        <image name="Page 1" width="135" height="141"/>
+        <image name="Page 1-1" width="183" height="156"/>
+        <image name="Page 1-3" width="483" height="492"/>
+        <image name="Partenza" width="153" height="33"/>
+        <image name="Passaggio" width="228" height="54"/>
+        <image name="Rectangle" width="792" height="111"/>
+        <image name="Rectangle 12" width="792" height="111"/>
+        <image name="Rectangle 3" width="165" height="69"/>
+        <image name="Rectangle 4" width="6" height="297"/>
+        <image name="Rectangle 6" width="1125" height="2001"/>
+        <image name="Rectangle 8" width="792" height="111"/>
+        <image name="Utente" width="150" height="42"/>
+        <image name="Viaggio" width="168" height="54"/>
+        <image name="celletta" width="435" height="114"/>
+        <image name="driver" width="799" height="799"/>
+        <image name="richiedipassaggio3" width="183" height="180"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TZj-pk-wl3"/>
+        <segue reference="HoU-g2-mD2"/>
+        <segue reference="vd8-eZ-jsk"/>
+    </inferredMetricsTieBreakers>
+</document>
