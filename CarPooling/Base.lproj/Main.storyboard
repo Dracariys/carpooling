@@ -305,6 +305,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="Xol-VN-kuq" kind="show" identifier="riepilogoSegue" id="5l4-ce-DGp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmX-e5-Kg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -733,6 +736,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="Xol-VN-kuq" kind="show" identifier="riepilogoSegue" id="ni5-Gq-IyO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOT-l0-epW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -755,4 +761,7 @@
         <image name="driver" width="799" height="799"/>
         <image name="richiedipassaggio3" width="183" height="180"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ni5-Gq-IyO"/>
+    </inferredMetricsTieBreakers>
 </document>

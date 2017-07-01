@@ -43,7 +43,7 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
         
         cell.autoName.text = cars[indexPath.row].name
         cell.carImage.image = cars[indexPath.row].image
-        //cell.consumi.text = String(cars[indexPath.row].risparmioPerChilometro)
+        cell.consumi.text = "Risparmio energetico: " + String(arc4random_uniform(UInt32(150))) + "%"
         
         return cell
         

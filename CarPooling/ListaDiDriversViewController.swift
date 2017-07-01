@@ -72,8 +72,8 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         cell.driverName.text = drivers![indexPath.row].name
         cell.carImage.image = cars![indexPath.row].image
         cell.carName.text = cars![indexPath.row].name
-        cell.idLabel.text = drivers![indexPath.row].id
-        cell.distanceLabel.text = String(arc4random_uniform(UInt32(1000.d)))
+        cell.idLabel.text = "ID: " + drivers![indexPath.row].id
+        cell.distanceLabel.text = String(arc4random_uniform(UInt32(1000.d))) + " km"
         
         return cell
         
