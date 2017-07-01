@@ -17,11 +17,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-        locationManager.requestWhenInUseAuthorization()
-        mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: false)
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.startUpdatingLocation()
+//        locationManager.requestWhenInUseAuthorization()
+//        mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: false)
 
     }
 
