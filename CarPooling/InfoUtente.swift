@@ -13,7 +13,17 @@ import UIKit
 
 class InfoUtente: UIViewController{
     
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
     override func viewDidLoad() {
+        
+        
+        
+        
+        
         
     }
     
