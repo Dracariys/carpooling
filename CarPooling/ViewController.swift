@@ -20,6 +20,7 @@ var TRAVEL : [CLLocationCoordinate2D] = [
     }
 }
 let currentUser = USERS[Int(arc4random()) % USERS.count].name
+var rejectedUsers : [String] = []
 
 var START : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788)
 var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.926094, longitude: 12.302646)
@@ -44,6 +45,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
+        if(rejectedUsers.contains(where: {$0 != message})){
         let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 30:00 minuti, ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
         var rect = CGSize(width: 50, height: 50)
         UIGraphicsBeginImageContext(rect)
@@ -51,10 +53,11 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         vista.image = USERS.filter({$0.name == message}).first?.image
         alert.view.addSubview(vista)
         let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in self.newPlace()})
-        let action2 = UIAlertAction(title: "No!", style: .cancel, handler: nil)
+        let action2 = UIAlertAction(title: "No!", style: .cancel, handler: {_ in rejectedUsers.append(message)})
         alert.addAction(action)
         alert.addAction(action2)
         self.present(alert, animated: true)
+        }
     }
     
     func newPlace(){
