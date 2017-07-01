@@ -26,7 +26,6 @@
 		B870439F1F0813D900449323 /* CarsAvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439E1F0813D900449323 /* CarsAvailableCell.swift */; };
 		B89291841F06AC35000F8131 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89291831F06AC35000F8131 /* User.swift */; };
 		E710ECE71F07DCB4005B9975 /* PoisAziende.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE61F07DCB4005B9975 /* PoisAziende.swift */; };
-		E710ECE91F07F6DE005B9975 /* MessageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */; };
 		E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */; };
 		E77F1BBD1F069DB0006FBC60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BBC1F069DB0006FBC60 /* ViewController.swift */; };
 		E77F1BC01F069DB0006FBC60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BBE1F069DB0006FBC60 /* Main.storyboard */; };
@@ -63,7 +62,6 @@
 		B870439E1F0813D900449323 /* CarsAvailableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableCell.swift; sourceTree = "<group>"; };
 		B89291831F06AC35000F8131 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E710ECE61F07DCB4005B9975 /* PoisAziende.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PoisAziende.swift; path = ../PoisAziende.swift; sourceTree = "<group>"; };
-		E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageServiceManager.swift; sourceTree = "<group>"; };
 		E77F1BB71F069DAF006FBC60 /* CarPooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77F1BBC1F069DB0006FBC60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				44C66EFA1F07C3F600541921 /* ArrivoCell.swift */,
 				B87043941F07F87600449323 /* DriverDetailsCell.swift */,
 				B870439E1F0813D900449323 /* CarsAvailableCell.swift */,
-				E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -261,7 +258,6 @@
 				E77F1BBD1F069DB0006FBC60 /* ViewController.swift in Sources */,
 				44C66EE91F079DE000541921 /* MappaPercorso.swift in Sources */,
 				E710ECE71F07DCB4005B9975 /* PoisAziende.swift in Sources */,
-				E710ECE91F07F6DE005B9975 /* MessageServiceManager.swift in Sources */,
 				44C66EE11F079CBD00541921 /* SelezionePercorso.swift in Sources */,
 				44C66EE31F079D1900541921 /* CollectionViewPartenza.swift in Sources */,
 				44C66EEB1F079E3900541921 /* Autista.swift in Sources */,
@@ -270,6 +266,7 @@
 				E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */,
 				E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */,
 				44C66EED1F079E9400541921 /* RiepilogoArrivo.swift in Sources */,
+				B87043931F07F84D00449323 /* ListaDiDriversViewController.swift in Sources */,
 				44C66EEF1F079F8E00541921 /* InfoUtente.swift in Sources */,
 				44C66EF11F07A0CF00541921 /* RichiediPassaggio.swift in Sources */,
 				E77F1BDC1F06A7F6006FBC60 /* Travel.swift in Sources */,

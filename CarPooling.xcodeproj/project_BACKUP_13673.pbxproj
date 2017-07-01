@@ -134,9 +134,12 @@
 				44C66EF81F07BE2E00541921 /* PartenzaCell.swift */,
 				E710ECE61F07DCB4005B9975 /* PoisAziende.swift */,
 				44C66EFA1F07C3F600541921 /* ArrivoCell.swift */,
+<<<<<<< HEAD
 				B87043941F07F87600449323 /* DriverDetailsCell.swift */,
 				B870439E1F0813D900449323 /* CarsAvailableCell.swift */,
+=======
 				E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */,
+>>>>>>> master
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */,
 				E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */,
 				44C66EED1F079E9400541921 /* RiepilogoArrivo.swift in Sources */,
+				B87043931F07F84D00449323 /* ListaDiDriversViewController.swift in Sources */,
 				44C66EEF1F079F8E00541921 /* InfoUtente.swift in Sources */,
 				44C66EF11F07A0CF00541921 /* RichiediPassaggio.swift in Sources */,
 				E77F1BDC1F06A7F6006FBC60 /* Travel.swift in Sources */,
