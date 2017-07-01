@@ -34,9 +34,22 @@ extension Float {
     var i: Int { return Int(self) }
 }
 
+extension CLLocationDegrees
+{
+    func truncate(places : Int)-> CLLocationDegrees{
+        return CLLocationDegrees(floor(pow(10.0, CLLocationDegrees(places)) * self)/pow(10.0, CLLocationDegrees(places)))
+    }
+}
+
 func != (_ op1 : CLLocationCoordinate2D,_ op2 : CLLocationCoordinate2D) -> Bool {
-    if (op1.latitude == op2.longitude && op1.latitude == op2.longitude){
+    if (op1.latitude == op2.latitude && op1.longitude == op2.longitude){
         return false
     }
     return true
+}
+func == (_ op1 : CLLocationCoordinate2D,_ op2 : CLLocationCoordinate2D) -> Bool {
+    if (op1.latitude == op2.latitude && op1.longitude == op2.longitude){
+        return true
+    }
+    return false
 }

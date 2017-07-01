@@ -7,6 +7,7 @@ class PlaceAnnotation: NSObject, MKAnnotation {
   let title: String?
     var subtitle: String?
     var type : Int = 0
+    var image : UIImage?
   
     init(location: CLLocationCoordinate2D, title: String, subtitle : String) {
     self.coordinate = location

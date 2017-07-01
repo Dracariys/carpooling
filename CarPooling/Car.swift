@@ -57,6 +57,20 @@ class Car {
         max_posti = 4
     }
     
+    init(name: String, image: UIImage, _ loc : CLLocationCoordinate2D){
+        
+        self.name = name
+        self.image = image
+        position = loc
+        age = 0
+        mileage = 0
+        services = []
+        todayMileage = 0
+        risparmioPerChilometro = 0
+        risparmioGiornaliero = 0
+        max_posti = 4
+    }
+    
     
     
     
