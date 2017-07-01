@@ -8,10 +8,10 @@ class PlaceAnnotation: NSObject, MKAnnotation {
     var subtitle: String?
     var type : Int = 0
   
-    init(location: CLLocationCoordinate2D, title: String, type : String) {
+    init(location: CLLocationCoordinate2D, title: String, subtitle : String) {
     self.coordinate = location
     self.title = title
-    self.subtitle = type
+    self.subtitle = subtitle
     super.init()
   }
 }
