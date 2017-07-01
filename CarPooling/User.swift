@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+
 class User {
     
     
@@ -20,6 +22,7 @@ class User {
     var age: Int?
     var role: String?
     var yearsOfExperience: Int?
+    var azienda: String
     
     
     init(id: String){
@@ -32,7 +35,7 @@ class User {
         age = 0
         role = ""
         yearsOfExperience = 0
-        
+        azienda = ""
         
     }
     
@@ -46,6 +49,7 @@ class User {
         age = 0
         role = ""
         yearsOfExperience = 0
+        azienda = ""
         
         
         

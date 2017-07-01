@@ -7,5 +7,20 @@
 //
 
 import Foundation
+import UIKit
 //7
 //scheda di riepilogo con arrivo, mostarre emissioni, feedback, percorso e autista
+
+
+class RiepilogoArrivo: UIViewController{
+    
+    
+    
+    override func viewDidLoad() {
+        
+    }
+    
+    
+    
+    
+}

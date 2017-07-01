@@ -7,6 +7,23 @@
 //
 
 import Foundation
+import UIKit
 //5
 //dopo aver scelto i dati di partenza e arrivo, qui ci sarà una scheda di ripielogo, con il pulsante prenota auto
 //ci sarà una mappa che mostra un piccolo percorso verso l'auto.
+
+
+
+class RiepilogoPartenza: UIViewController{
+    
+    
+    
+    override func viewDidLoad() {
+        
+    }
+    
+    
+    
+    
+    
+}
