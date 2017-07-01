@@ -19,8 +19,14 @@ class ViewController: UIViewController {
     let wp2 = CLLocationCoordinate2D(latitude: 40.837102 , longitude: 14.331563)
     @IBOutlet weak var mapView: MKMapView!
 
+    @IBAction func showProfile(_ sender: Any) {
+        
+        performSegue(withIdentifier: "profileSegue", sender: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self)
         mapView.delegate=self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
