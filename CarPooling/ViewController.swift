@@ -145,7 +145,7 @@ extension ViewController: CLLocationManagerDelegate {
             }
         }
     }
-    
+    //bun
     /*
     func drawPointsOfInterest(location: CLLocation) {
         /* let span = MKCoordinateSpan(latitudeDelta: 0.014, longitudeDelta: 0.014)
