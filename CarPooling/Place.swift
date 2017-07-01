@@ -20,8 +20,6 @@ class Place {
     var image: UIImage?
     var phone: String?
     
-    
-    
     init(address: String, location: CLLocationCoordinate2D, locationName: String){
         self.address = address
         self.location = location
