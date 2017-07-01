@@ -9,14 +9,20 @@
 import UIKit
 import MapKit
 import CoreLocation
+
+var TRAVEL : [CLLocationCoordinate2D] = [
+    
+    CLLocationCoordinate2D(latitude: 42.767863, longitude: 11.144630)
+    ,CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345)
+]
+var START : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788)
+var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.926094, longitude: 12.302646)
+
+let messageService = MessageServiceManager(serviceName: "ShareSeat")
 // update
-class ViewController: UIViewController {
+class ViewController: UIViewController, MessageServiceManagerDelegate {
     fileprivate var POIS = [Place]()
     fileprivate let locationManager = CLLocationManager()
-    let start = CLLocationCoordinate2D(latitude: 40.836087, longitude: 14.305694)
-    let arrival = CLLocationCoordinate2D(latitude: 40.847360, longitude: 14.281893)
-    let wp = CLLocationCoordinate2D(latitude: 40.837102 , longitude: 14.301563)
-    let wp2 = CLLocationCoordinate2D(latitude: 40.837102 , longitude: 14.331563)
     @IBOutlet weak var mapView: MKMapView!
     var veicles : [(Car,CarAnnotation)] = []
 
@@ -25,7 +31,50 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "profileSegue", sender: nil)
         
     }
+    
+    func connectedDevicesChanged(manager: MessageServiceManager, connectedDevices: [String]) {
+        
+    }
+    
+    func messageReceived(manager: MessageServiceManager, message: String) {
+        let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 30:00 minuti, ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
+        var rect = CGSize(width: 50, height: 50)
+        UIGraphicsBeginImageContext(rect)
+        let vista = (UIImageView(frame: CGRect(x: 10, y: 10, width: 50, height: 50)))
+        vista.image = #imageLiteral(resourceName: "paolo")
+        alert.view.addSubview(vista)
+        let action = UIAlertAction(title: "Si!", style: .default, handler: nil)
+        let action2 = UIAlertAction(title: "No!", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(action2)
+        self.present(alert, animated: true)
+    }
+    
+    func makeTravel(){
+        if(TRAVEL.count < 1) {
+            self.getDirections(start: START, arrival: DESTINATION)
+            return
+        }
+        self.getDirections(start: START , arrival: TRAVEL[0])
+        var point = PlaceAnnotation(location: TRAVEL[0], title: "\(0)", subtitle: "paologay")
+        point.type = -1
+        mapView.addAnnotation(point)
+        if TRAVEL.count > 1 {
+            for k in 0..<TRAVEL.count-1 {
+                self.getDirections(start: TRAVEL[k] , arrival: TRAVEL[k+1])
+                let point = PlaceAnnotation(location: TRAVEL[k], title: "\(k)", subtitle: "paologay")
+                point.type = -1
+                mapView.addAnnotation(point)
+            }
+        }
+        self.getDirections(start: TRAVEL[TRAVEL.count-1] , arrival: DESTINATION)
+        point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "cftvgybh")
+        point.type = -1
+        mapView.addAnnotation(point)
+    }
+    
     override func viewDidLoad() {
+        messageService.delegate=self
         super.viewDidLoad()
         print(self)
         mapView.delegate=self
@@ -35,9 +84,10 @@ class ViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: false)
         loadPoisAziendali()
-        //makeTravel()
-        generateVeicle(10)
+        makeTravel()
+        generateVeicle(3)
         refreshCar()
+        messageService.sendToAll(message: "paolo")
     }
     
     func generateVeicle(_ n : Int){
@@ -47,13 +97,12 @@ class ViewController: UIViewController {
             let annotation = CarAnnotation(veicle)
             mapView.addAnnotation(annotation)
             veicles.append(veicle,annotation)
-            
         }
     }
     
     func loadPoisAziendali(){
         for pois in POISAziendali {
-            let point = PlaceAnnotation(location: pois.location, title: pois.locationName, type: pois.address)
+            let point = PlaceAnnotation(location: pois.location, title: pois.locationName, subtitle: pois.address)
             mapView.addAnnotation(point)
         }
     }
@@ -68,6 +117,7 @@ class ViewController: UIViewController {
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            messageService.sendToAll(message: "paolo")
             self.refreshCar()
         }
     }
@@ -77,22 +127,12 @@ class ViewController: UIViewController {
         let rnd2 = (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ) - (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 )
         return CLLocationCoordinate2D(latitude: pos.latitude + rnd, longitude: pos.longitude + rnd2)
     }
-    
-    func makeTravel(){
-        let travel = [start]
-        for k in 0..<travel.count-1 {
-            self.getDirections(start: travel[k], arrival: travel[k+1])
-            let point = PlaceAnnotation(location: travel[k], title: "\(k)", type: "paologay")
-            mapView.addAnnotation(point)
-        }
-        let point = PlaceAnnotation(location: travel.last!, title: "end", type: "cftvgybh")
-        mapView.addAnnotation(point)
-    }
+
     
     func getDirections(start : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D) {
         let request = MKDirectionsRequest()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: start))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: wp))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: arrival))
         request.requestsAlternateRoutes = false
         request.transportType = .walking
         let directions = MKDirections(request: request)
@@ -189,7 +229,7 @@ extension ViewController: CLLocationManagerDelegate {
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        let colors = [UIColor.blue,UIColor.red,UIColor.cyan,UIColor.brown]
+        let colors = [UIColor.blue,UIColor.red,UIColor.brown]
         renderer.strokeColor = colors[Int(arc4random()) % colors.count]
         renderer.lineWidth = 2.0
         
@@ -220,7 +260,8 @@ extension ViewController: MKMapViewDelegate {
                 rect = CGSize(width: 40, height: 40)
             }
         } else if let car = annotation as? CarAnnotation{
-            
+            img = #imageLiteral(resourceName: "pinsuperfinale")
+            rect = CGSize(width: 40, height: 40)
         } else {print("NOT RECOGNIZED")}
         UIGraphicsBeginImageContext(rect)
         img.draw(in: CGRect(x: 0, y: 0, width: rect.width, height: rect.height))
