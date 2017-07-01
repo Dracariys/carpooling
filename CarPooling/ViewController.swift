@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-
+// update
 class ViewController: UIViewController {
     fileprivate var POIS = [Place]()
     fileprivate let locationManager = CLLocationManager()
