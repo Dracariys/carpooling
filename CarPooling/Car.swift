@@ -16,7 +16,7 @@ class Car {
     
     var driver: User?
     var name: String
-    var position: CLLocation
+    var position: CLLocationCoordinate2D
     var age: Int?
     var mileage: Double? //chilometri percorsi
     var services: [String]? //aria condizionata ecc.
@@ -31,7 +31,7 @@ class Car {
     init(name: String){
         
         self.name = name
-        position = CLLocation(latitude: 0, longitude: 0)
+        position = CLLocationCoordinate2D(latitude: 0, longitude: 0)
         age = 0
         mileage = 0
         services = []
@@ -39,9 +39,6 @@ class Car {
         risparmioPerChilometro = 0
         risparmioGiornaliero = 0
         max_posti = 4
-        
-        
-        
     }
     
 
