@@ -98,7 +98,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
                 self.getDirections(start: TRAVEL[k] , arrival: TRAVEL[k+1])
                 let point = PlaceAnnotation(location: TRAVEL[k], title: "\(k)", subtitle: "paologay")
                 if DROPLOCATION.contains(where: {$0 == TRAVEL[k]}) {
-                    print("CONTAINS")
                     point.type = 1
                 } else {point.type = -1}
                 mapView.addAnnotation(point)
@@ -107,7 +106,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         self.getDirections(start: TRAVEL[TRAVEL.count-1] , arrival: DESTINATION)
         let point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "cftvgybh")
         if DROPLOCATION.contains(where: {$0 == TRAVEL[TRAVEL.count-1]}) {
-            print("CONTAINS")
             point.type = 1
         } else {point.type = -1}
         mapView.addAnnotation(point)
@@ -116,7 +114,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     override func viewDidLoad() {
         messageService.delegate=self
         super.viewDidLoad()
-        print(self)
         mapView.delegate=self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
