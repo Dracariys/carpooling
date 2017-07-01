@@ -18,12 +18,12 @@
 		44C66EF11F07A0CF00541921 /* RichiediPassaggio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EF01F07A0CF00541921 /* RichiediPassaggio.swift */; };
 		44C66EF91F07BE2E00541921 /* PartenzaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EF81F07BE2E00541921 /* PartenzaCell.swift */; };
 		44C66EFB1F07C3F600541921 /* ArrivoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EFA1F07C3F600541921 /* ArrivoCell.swift */; };
-		B87043931F07F84D00449323 /* ListaDiDriversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043921F07F84D00449323 /* ListaDiDriversViewController.swift */; };
 		B87043951F07F87600449323 /* DriverDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043941F07F87600449323 /* DriverDetailsCell.swift */; };
 		B87043971F080C7D00449323 /* PartenzaViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043961F080C7D00449323 /* PartenzaViaggioController.swift */; };
 		B87043991F080D1400449323 /* ArrivoViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043981F080D1400449323 /* ArrivoViaggioController.swift */; };
 		B870439D1F080D8900449323 /* CarsAvailableViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */; };
 		B870439F1F0813D900449323 /* CarsAvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439E1F0813D900449323 /* CarsAvailableCell.swift */; };
+		B87043A11F08358200449323 /* ListaDiDriversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043A01F08358200449323 /* ListaDiDriversViewController.swift */; };
 		B89291841F06AC35000F8131 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89291831F06AC35000F8131 /* User.swift */; };
 		E710ECE71F07DCB4005B9975 /* PoisAziende.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE61F07DCB4005B9975 /* PoisAziende.swift */; };
 		E710ECE91F07F6DE005B9975 /* MessageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */; };
@@ -55,12 +55,12 @@
 		44C66EF01F07A0CF00541921 /* RichiediPassaggio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichiediPassaggio.swift; sourceTree = "<group>"; };
 		44C66EF81F07BE2E00541921 /* PartenzaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartenzaCell.swift; sourceTree = "<group>"; };
 		44C66EFA1F07C3F600541921 /* ArrivoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivoCell.swift; sourceTree = "<group>"; };
-		B87043921F07F84D00449323 /* ListaDiDriversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaDiDriversViewController.swift; sourceTree = "<group>"; };
 		B87043941F07F87600449323 /* DriverDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDetailsCell.swift; sourceTree = "<group>"; };
 		B87043961F080C7D00449323 /* PartenzaViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartenzaViaggioController.swift; sourceTree = "<group>"; };
 		B87043981F080D1400449323 /* ArrivoViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivoViaggioController.swift; sourceTree = "<group>"; };
 		B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableViaggioController.swift; sourceTree = "<group>"; };
 		B870439E1F0813D900449323 /* CarsAvailableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableCell.swift; sourceTree = "<group>"; };
+		B87043A01F08358200449323 /* ListaDiDriversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaDiDriversViewController.swift; sourceTree = "<group>"; };
 		B89291831F06AC35000F8131 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E710ECE61F07DCB4005B9975 /* PoisAziende.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PoisAziende.swift; path = ../PoisAziende.swift; sourceTree = "<group>"; };
 		E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageServiceManager.swift; sourceTree = "<group>"; };
@@ -167,10 +167,10 @@
 				44C66EE81F079DE000541921 /* MappaPercorso.swift */,
 				44C66EEC1F079E9400541921 /* RiepilogoArrivo.swift */,
 				44C66EEE1F079F8E00541921 /* InfoUtente.swift */,
-				B87043921F07F84D00449323 /* ListaDiDriversViewController.swift */,
 				B87043961F080C7D00449323 /* PartenzaViaggioController.swift */,
 				B87043981F080D1400449323 /* ArrivoViaggioController.swift */,
 				B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */,
+				B87043A01F08358200449323 /* ListaDiDriversViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -267,6 +267,7 @@
 				44C66EEB1F079E3900541921 /* Autista.swift in Sources */,
 				B870439D1F080D8900449323 /* CarsAvailableViaggioController.swift in Sources */,
 				B89291841F06AC35000F8131 /* User.swift in Sources */,
+				B87043A11F08358200449323 /* ListaDiDriversViewController.swift in Sources */,
 				E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */,
 				E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */,
 				44C66EED1F079E9400541921 /* RiepilogoArrivo.swift in Sources */,

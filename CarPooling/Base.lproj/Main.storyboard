@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOK-F0-TAx">
                                 <rect key="frame" x="69" y="593" width="236" height="35"/>
@@ -85,8 +85,6 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ER1-EF-i5V">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SEN-8s-QcO">
                                     <size key="itemSize" width="150" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -164,8 +162,6 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iW8-KT-SFh">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.9839518666" green="0.99654716249999997" blue="0.97567695379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g0h-OY-Aeb">
                                     <size key="itemSize" width="150" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -292,18 +288,18 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="carImage" destination="yoZ-c8-mog" id="z0R-p5-pcU"/>
-                                            <outlet property="carName" destination="Vwk-Pm-nRw" id="cBz-3f-PQz"/>
-                                            <outlet property="distanceLabel" destination="U4a-b2-OMZ" id="SRF-rm-jyA"/>
-                                            <outlet property="driverName" destination="2ay-7d-sWm" id="Xy1-Ef-ryv"/>
-                                            <outlet property="idLabel" destination="HQI-9s-gME" id="ba9-cb-DbL"/>
-                                            <outlet property="rankLabel" destination="bdh-2f-KKs" id="ATj-VL-eEr"/>
+                                            <outlet property="carImage" destination="yoZ-c8-mog" id="ub2-yg-6N3"/>
+                                            <outlet property="carName" destination="Vwk-Pm-nRw" id="inO-Qd-m3g"/>
+                                            <outlet property="distanceLabel" destination="U4a-b2-OMZ" id="DI4-3K-y8Z"/>
+                                            <outlet property="driverName" destination="2ay-7d-sWm" id="ID4-5H-VwT"/>
+                                            <outlet property="idLabel" destination="HQI-9s-gME" id="H1T-3e-f5M"/>
+                                            <outlet property="rankLabel" destination="bdh-2f-KKs" id="8pv-yq-z8W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="x6b-WM-QHq" id="xWk-mZ-WVo"/>
-                                    <outlet property="delegate" destination="x6b-WM-QHq" id="qwt-78-ztt"/>
+                                    <outlet property="dataSource" destination="x6b-WM-QHq" id="kjn-PQ-mR5"/>
+                                    <outlet property="delegate" destination="x6b-WM-QHq" id="1xG-Nk-gJ1"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -330,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="se6-1h-csU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6292" y="166"/>
+            <point key="canvasLocation" x="7729" y="241"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jFt-xl-LpN">
@@ -730,8 +726,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="SR8-sZ-Im2" id="5PC-Ht-T2I"/>
-                                    <outlet property="delegate" destination="SR8-sZ-Im2" id="M3B-uN-FuZ"/>
+                                    <outlet property="dataSource" destination="SR8-sZ-Im2" id="txE-X2-vpZ"/>
+                                    <outlet property="delegate" destination="SR8-sZ-Im2" id="O4O-Ky-4l9"/>
                                 </connections>
                             </tableView>
                         </subviews>

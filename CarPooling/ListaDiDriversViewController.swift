@@ -9,7 +9,7 @@
 import UIKit
 
 class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     
     
     var drivers: [User]?
@@ -19,6 +19,8 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
     
     
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         drivers = [
             User(id: "0123456", name: "Gino D'Acampo", image: #imageLiteral(resourceName: "driver2")),
@@ -26,7 +28,7 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
             User(id: "0123428", name: "Paul Patrick", image: #imageLiteral(resourceName: "paolo")),
             User(id: "0123439", name: "Alex M. Routa", image: #imageLiteral(resourceName: "driver4")),
             User(id: "0123490", name: "Dave S. Avel", image: #imageLiteral(resourceName: "driver5"))
-            ]
+        ]
         
         cars = [
             Car(name: "Alfa Romeo Giulietta", image: #imageLiteral(resourceName: "car1")),
@@ -43,7 +45,7 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,12 +54,12 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-               
+        
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
+        
         return (drivers?.count)!
         
     }
@@ -78,15 +80,15 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
