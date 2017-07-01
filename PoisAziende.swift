@@ -18,7 +18,7 @@ let POISAziendali : [Place] = [
 let USERS : [User] = [
     User(id: "0123456", name: "Gino D'Acampo", image: #imageLiteral(resourceName: "driver2")),
     User(id: "0123477", name: "Richard Ayoade", image: #imageLiteral(resourceName: "driver3")),
-    User(id: "0123428", name: "Paul Patrick", image: #imageLiteral(resourceName: "paolo")),
+    User(id: "0123428", name: "Paul Patrick", image: #imageLiteral(resourceName: "driver")),
     User(id: "0123439", name: "Alex M. Routa", image: #imageLiteral(resourceName: "driver4")),
     User(id: "0123490", name: "Dave S. Avel", image: #imageLiteral(resourceName: "driver5"))
 ]
@@ -30,7 +30,7 @@ let CARS : [Car] = [
     Car(name: "Subaru Baracca", image: #imageLiteral(resourceName: "car4"),randomMove(POISAziendali[1].location)),
     Car(name: "Panzer", image: #imageLiteral(resourceName: "car5"),randomMove(POISAziendali[1].location)),
     Car(name: "Toyota Corolla", image: #imageLiteral(resourceName: "car6"),randomMove(POISAziendali[1].location)),
-    Car(name: "Citroen Picasso", image: #imageLiteral(resourceName: "car7"),randomMove(POISAziendali[2].location)),
+    Car(name: "Citroen Picasso", image: #imageLiteral(resourceName: "car7"),randomMove(POISAziendali[0].location)),
     Car(name: "Volkswagen Golf", image: #imageLiteral(resourceName: "car8"),randomMove(POISAziendali[2].location)),
     Car(name: "Lotus Elise", image: #imageLiteral(resourceName: "car9"),randomMove(POISAziendali[2].location)),
     Car(name: "Jeep Wrangler", image: #imageLiteral(resourceName: "car10"),randomMove(POISAziendali[2].location))
