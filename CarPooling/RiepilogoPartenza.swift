@@ -17,7 +17,7 @@ import UIKit
 class RiepilogoPartenza: UIViewController{
     
     
-    
+    //
     override func viewDidLoad() {
         
     }
