@@ -40,6 +40,22 @@ class ViewController: UIViewController {
         refreshCar()
     }
     
+    
+    
+    @IBAction func viaggioDidTouch(_ sender: Any) {
+        
+        performSegue(withIdentifier: "viaggioSegue", sender: nil)
+        
+    }
+    
+    
+    @IBAction func passaggioDidTouch(_ sender: Any) {
+        
+        performSegue(withIdentifier: "passaggioSegue", sender: nil)
+        
+    }
+    
+    
     func generateVeicle(_ n : Int){
         for _ in 0...n {
             let veicle = Car(name: "prova")
@@ -241,4 +257,10 @@ func ordeBySecond(toOrder: [Any], indexes: [Int])->[Any]{
     
     return c
 }
+
+
+
+
+
+
 

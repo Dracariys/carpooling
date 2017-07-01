@@ -18,6 +18,12 @@
 		44C66EF11F07A0CF00541921 /* RichiediPassaggio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EF01F07A0CF00541921 /* RichiediPassaggio.swift */; };
 		44C66EF91F07BE2E00541921 /* PartenzaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EF81F07BE2E00541921 /* PartenzaCell.swift */; };
 		44C66EFB1F07C3F600541921 /* ArrivoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EFA1F07C3F600541921 /* ArrivoCell.swift */; };
+		B87043931F07F84D00449323 /* ListaDiDriversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043921F07F84D00449323 /* ListaDiDriversViewController.swift */; };
+		B87043951F07F87600449323 /* DriverDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043941F07F87600449323 /* DriverDetailsCell.swift */; };
+		B87043971F080C7D00449323 /* PartenzaViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043961F080C7D00449323 /* PartenzaViaggioController.swift */; };
+		B87043991F080D1400449323 /* ArrivoViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043981F080D1400449323 /* ArrivoViaggioController.swift */; };
+		B870439D1F080D8900449323 /* CarsAvailableViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */; };
+		B870439F1F0813D900449323 /* CarsAvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439E1F0813D900449323 /* CarsAvailableCell.swift */; };
 		B89291841F06AC35000F8131 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89291831F06AC35000F8131 /* User.swift */; };
 		E710ECE71F07DCB4005B9975 /* PoisAziende.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE61F07DCB4005B9975 /* PoisAziende.swift */; };
 		E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */; };
@@ -48,6 +54,12 @@
 		44C66EF01F07A0CF00541921 /* RichiediPassaggio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichiediPassaggio.swift; sourceTree = "<group>"; };
 		44C66EF81F07BE2E00541921 /* PartenzaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartenzaCell.swift; sourceTree = "<group>"; };
 		44C66EFA1F07C3F600541921 /* ArrivoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivoCell.swift; sourceTree = "<group>"; };
+		B87043921F07F84D00449323 /* ListaDiDriversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaDiDriversViewController.swift; sourceTree = "<group>"; };
+		B87043941F07F87600449323 /* DriverDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDetailsCell.swift; sourceTree = "<group>"; };
+		B87043961F080C7D00449323 /* PartenzaViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartenzaViaggioController.swift; sourceTree = "<group>"; };
+		B87043981F080D1400449323 /* ArrivoViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivoViaggioController.swift; sourceTree = "<group>"; };
+		B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableViaggioController.swift; sourceTree = "<group>"; };
+		B870439E1F0813D900449323 /* CarsAvailableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableCell.swift; sourceTree = "<group>"; };
 		B89291831F06AC35000F8131 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E710ECE61F07DCB4005B9975 /* PoisAziende.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PoisAziende.swift; path = ../PoisAziende.swift; sourceTree = "<group>"; };
 		E77F1BB71F069DAF006FBC60 /* CarPooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +132,8 @@
 				44C66EF81F07BE2E00541921 /* PartenzaCell.swift */,
 				E710ECE61F07DCB4005B9975 /* PoisAziende.swift */,
 				44C66EFA1F07C3F600541921 /* ArrivoCell.swift */,
+				B87043941F07F87600449323 /* DriverDetailsCell.swift */,
+				B870439E1F0813D900449323 /* CarsAvailableCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -150,6 +164,10 @@
 				44C66EE81F079DE000541921 /* MappaPercorso.swift */,
 				44C66EEC1F079E9400541921 /* RiepilogoArrivo.swift */,
 				44C66EEE1F079F8E00541921 /* InfoUtente.swift */,
+				B87043921F07F84D00449323 /* ListaDiDriversViewController.swift */,
+				B87043961F080C7D00449323 /* PartenzaViaggioController.swift */,
+				B87043981F080D1400449323 /* ArrivoViaggioController.swift */,
+				B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -233,6 +251,7 @@
 			files = (
 				44C66EFB1F07C3F600541921 /* ArrivoCell.swift in Sources */,
 				44C66EF91F07BE2E00541921 /* PartenzaCell.swift in Sources */,
+				B870439F1F0813D900449323 /* CarsAvailableCell.swift in Sources */,
 				44C66EE51F079D2800541921 /* CollectionViewArrivo.swift in Sources */,
 				44C66EE71F079D7600541921 /* RiepilogoPartenza.swift in Sources */,
 				E7F6A69F1F0797BE00605AB8 /* PlaceAnnotation.swift in Sources */,
@@ -242,14 +261,19 @@
 				44C66EE11F079CBD00541921 /* SelezionePercorso.swift in Sources */,
 				44C66EE31F079D1900541921 /* CollectionViewPartenza.swift in Sources */,
 				44C66EEB1F079E3900541921 /* Autista.swift in Sources */,
+				B870439D1F080D8900449323 /* CarsAvailableViaggioController.swift in Sources */,
 				B89291841F06AC35000F8131 /* User.swift in Sources */,
 				E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */,
 				E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */,
 				44C66EED1F079E9400541921 /* RiepilogoArrivo.swift in Sources */,
+				B87043931F07F84D00449323 /* ListaDiDriversViewController.swift in Sources */,
 				44C66EEF1F079F8E00541921 /* InfoUtente.swift in Sources */,
 				44C66EF11F07A0CF00541921 /* RichiediPassaggio.swift in Sources */,
 				E77F1BDC1F06A7F6006FBC60 /* Travel.swift in Sources */,
 				E77F1BD61F06A7AF006FBC60 /* Car.swift in Sources */,
+				B87043971F080C7D00449323 /* PartenzaViaggioController.swift in Sources */,
+				B87043991F080D1400449323 /* ArrivoViaggioController.swift in Sources */,
+				B87043951F07F87600449323 /* DriverDetailsCell.swift in Sources */,
 				E77F1BDE1F06A8D7006FBC60 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

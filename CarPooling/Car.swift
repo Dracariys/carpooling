@@ -16,6 +16,7 @@ class Car {
     
     var driver: User?
     var name: String
+    var image: UIImage?
     var position: CLLocationCoordinate2D
     var age: Int?
     var mileage: Double? //chilometri percorsi
@@ -36,10 +37,29 @@ class Car {
         mileage = 0
         services = []
         todayMileage = 0
+        risparmioPerChilometro = Double(arc4random_uniform(UInt32(1000)))
+        risparmioGiornaliero = 0
+        max_posti = 4
+    }
+    
+    
+    init(name: String, image: UIImage){
+        
+        self.name = name
+        self.image = image
+        position = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        age = 0
+        mileage = 0
+        services = []
+        todayMileage = 0
         risparmioPerChilometro = 0
         risparmioGiornaliero = 0
         max_posti = 4
     }
+    
+    
+    
+    
     
 
         

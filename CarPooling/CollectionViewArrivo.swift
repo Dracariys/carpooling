@@ -45,6 +45,9 @@ class CollectionViewArrivo: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        performSegue(withIdentifier: "driversListSegue", sender: nil)
+
+        
     }
     
     

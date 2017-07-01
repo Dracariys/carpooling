@@ -55,6 +55,22 @@ class User {
         
     }
     
+    init(id: String, name: String, image: UIImage) {
+        
+        self.name = name
+        self.id = id
+        phone = ""
+        self.image = image
+        rankings = []
+        age = 0
+        role = ""
+        yearsOfExperience = 0
+        azienda = ""
+        
+        
+        
+    }
+    
     func getAverageRanking()->Double{
         
         var sum = 0.0
