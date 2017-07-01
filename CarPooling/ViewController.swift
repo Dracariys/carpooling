@@ -12,15 +12,21 @@ import CoreLocation
 //Master
 
 var TRAVEL : [CLLocationCoordinate2D] = [
-    
     CLLocationCoordinate2D(latitude: 42.767863, longitude: 11.144630)
     ,CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345)
-]
+    ] {
+    didSet {
+        
+    }
+}
+let currentUser = USERS[Int(arc4random()) % USERS.count].name
+
 var START : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788)
 var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.926094, longitude: 12.302646)
+var DROPLOCATION : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345)]
 
 let messageService = MessageServiceManager(serviceName: "ShareSeat")
-// update
+// up
 class ViewController: UIViewController, MessageServiceManagerDelegate {
     fileprivate var POIS = [Place]()
     fileprivate let locationManager = CLLocationManager()
@@ -42,35 +48,65 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         var rect = CGSize(width: 50, height: 50)
         UIGraphicsBeginImageContext(rect)
         let vista = (UIImageView(frame: CGRect(x: 10, y: 10, width: 50, height: 50)))
-        vista.image = #imageLiteral(resourceName: "paolo")
+        vista.image = USERS.filter({$0.name == message}).first?.image
         alert.view.addSubview(vista)
-        let action = UIAlertAction(title: "Si!", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in self.newPlace()})
         let action2 = UIAlertAction(title: "No!", style: .cancel, handler: nil)
         alert.addAction(action)
         alert.addAction(action2)
         self.present(alert, animated: true)
     }
     
-    func makeTravel(_ droplocation : [Int]){
+    func newPlace(){
+        mapView.removeOverlays(mapView.overlays)
+        let loc = CLLocationCoordinate2D(latitude: 44.786133, longitude: 11.225345)
+        TRAVEL.append(loc)
+        travelMaking {
+        }
+    }
+    
+    func travelMaking(handler: @escaping () -> Void){
+        getCompletePath(START,DESTINATION,TRAVEL) { diction, error in
+            if let dic = diction {
+                let routes = dic.value(forKey: "routes") as! [NSDictionary]
+                let geocoded_waypoints = dic.value(forKey: "geocoded_waypoints")
+                if let r = routes.first {
+                    let bounds = r.value(forKey: "bounds")
+                    let summary = r.value(forKey: "summary")
+                    let waypoint_order = r.value(forKey: "waypoint_order") as! [Int]
+                    let legs = r.value(forKey: "legs") as! [NSDictionary]
+                    let warnings = r.value(forKey: "warnings")
+                    let overview_polyline = r.value(forKey: "overview_polyline")
+                    TRAVEL = ordeBySecond(toOrder: TRAVEL, indexes: waypoint_order) as! [CLLocationCoordinate2D]
+                    handler(self.findAndDraw())
+                }
+            }
+        }
+    }
+    
+    func findAndDraw(){
         if(TRAVEL.count < 1) {
             self.getDirections(start: START, arrival: DESTINATION)
             return
         }
         self.getDirections(start: START , arrival: TRAVEL[0])
-        var point = PlaceAnnotation(location: TRAVEL[0], title: "\(0)", subtitle: "paologay")
-        point.type = 0
-        mapView.addAnnotation(point)
         if TRAVEL.count > 1 {
             for k in 0..<TRAVEL.count-1 {
                 self.getDirections(start: TRAVEL[k] , arrival: TRAVEL[k+1])
                 let point = PlaceAnnotation(location: TRAVEL[k], title: "\(k)", subtitle: "paologay")
-                point.type = 0
+                if DROPLOCATION.contains(where: {$0 == TRAVEL[k]}) {
+                    print("CONTAINS")
+                    point.type = 1
+                } else {point.type = -1}
                 mapView.addAnnotation(point)
             }
         }
         self.getDirections(start: TRAVEL[TRAVEL.count-1] , arrival: DESTINATION)
-        point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "cftvgybh")
-        point.type = 0
+        let point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "cftvgybh")
+        if DROPLOCATION.contains(where: {$0 == TRAVEL[TRAVEL.count-1]}) {
+            print("CONTAINS")
+            point.type = 1
+        } else {point.type = -1}
         mapView.addAnnotation(point)
     }
     
@@ -85,10 +121,14 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: false)
         loadPoisAziendali()
-        makeTravel([])
-        generateVeicle(3)
+        travelMaking {
+        }
+        generateVeicle(CARS.count)
         refreshCar()
-        messageService.sendToAll(message: "paolo")
+        messageService.sendToAll(message: currentUser)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+         //   self.newPlace()
+        }
     }
     
     
@@ -108,12 +148,10 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     
     
     func generateVeicle(_ n : Int){
-        for _ in 0...n {
-            let veicle = Car(name: "prova")
-            veicle.position = CLLocationCoordinate2D(latitude: 40 + (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ), longitude: 14 + (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ))
-            let annotation = CarAnnotation(veicle)
+        for car in CARS {
+            let annotation = CarAnnotation(car)
             mapView.addAnnotation(annotation)
-            veicles.append(veicle,annotation)
+            veicles.append(car,annotation)
         }
     }
     
@@ -134,15 +172,10 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            messageService.sendToAll(message: "paolo")
+            messageService.sendToAll(message: currentUser)
+            //newuser
             self.refreshCar()
         }
-    }
-    
-    func randomMove (_ pos : CLLocationCoordinate2D) -> CLLocationCoordinate2D {
-        let rnd = (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ) - (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 )
-        let rnd2 = (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ) - (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 )
-        return CLLocationCoordinate2D(latitude: pos.latitude + rnd, longitude: pos.longitude + rnd2)
     }
 
     
@@ -194,21 +227,19 @@ func routeUrlCreate(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationC
     return basicUrl
 }
 
-func load(departure : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D , waypoints : [CLLocationCoordinate2D], handler: @escaping (NSDictionary?, NSError?) -> Void){
+func getCompletePath(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationCoordinate2D ,_  waypoints : [CLLocationCoordinate2D], handler: @escaping (NSDictionary?, NSError?) -> Void){
     let url = routeUrlCreate(departure,arrival,waypoints)
+    let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
     let session = URLSession(configuration: URLSessionConfiguration.default)
-    let dataTask = session.dataTask(with: URL(string: url)!) { data, response, error in
+    let dataTask = session.dataTask(with: URL(string:encoded!)!) { data, response, error in
         if let error = error {
-            print(error)
         } else if let httpResponse = response as? HTTPURLResponse {
             if httpResponse.statusCode == 200 {
-                
                 do {
                     let responseObject = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
                     guard let responseDict = responseObject as? NSDictionary else {
                         return
                     }
-                    
                     handler(responseDict, nil)
                     
                 } catch let error as NSError {
@@ -217,10 +248,10 @@ func load(departure : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D ,
             }
         }
     }
-    
     dataTask.resume()
-
 }
+
+
 
 
 
@@ -260,14 +291,15 @@ extension ViewController: MKMapViewDelegate {
         var img = #imageLiteral(resourceName: "pinfinalebianco")
         if let place = annotation as? PlaceAnnotation {
             switch place.type {
-            case -1: // Azienda
-                img = #imageLiteral(resourceName: "PinRifornimento")
+            case 0: // Azienda
+                img = #imageLiteral(resourceName: "Roma")
                 rect = CGSize(width: 40, height: 40)
-            case 0: // Dipendente
-                img = #imageLiteral(resourceName: "paolo")
+            case -1: // Dipendente
+                let dipendente = place.image ?? #imageLiteral(resourceName: "paolo")
+                img = dipendente
                 rect = CGSize(width: 40, height: 40)
             case 1: // drop
-                img = #imageLiteral(resourceName: "paolo")
+                img = #imageLiteral(resourceName: "Page 1-1")
                 rect = CGSize(width: 40, height: 40)
             default: // Posti disponibili
                 print("NOT RECOGNIZED")
@@ -296,16 +328,19 @@ extension ViewController: MKMapViewDelegate {
 func ordeBySecond(toOrder: [Any], indexes: [Int])->[Any]{
     
     var c: [Any] = []
-    
     for i in 0..<indexes.count{
-        
-        c[i] = toOrder[indexes[i]]
+        c.append(toOrder[indexes[i]])
         
     }
     
     return c
 }
 
+func randomMove (_ pos : CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+    let rnd = (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ) - (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 )
+    let rnd2 = (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ) - (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 )
+    return CLLocationCoordinate2D(latitude: pos.latitude + rnd, longitude: pos.longitude + rnd2)
+}
 
 
 
