@@ -272,6 +272,14 @@
                                         <rect key="frame" x="23" y="81" width="55" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 4" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-rD-Ubn">
+                                        <rect key="frame" x="107" y="8" width="2" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 4" translatesAutoresizingMaskIntoConstraints="NO" id="bEX-Ne-7uo">
+                                        <rect key="frame" x="208" y="8" width="2" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </view>
                         </subviews>
@@ -369,6 +377,7 @@
         <image name="Page 1-1" width="183" height="156"/>
         <image name="Passaggio" width="228" height="54"/>
         <image name="Rectangle 3" width="165" height="69"/>
+        <image name="Rectangle 4" width="6" height="297"/>
         <image name="Utente" width="150" height="42"/>
         <image name="Viaggio" width="168" height="54"/>
         <image name="richiedipassaggio3" width="183" height="180"/>
