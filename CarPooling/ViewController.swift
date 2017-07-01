@@ -51,7 +51,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         self.present(alert, animated: true)
     }
     
-    func makeTravel(){
+    func makeTravel(_ droplocation : [Int]){
         if(TRAVEL.count < 1) {
             self.getDirections(start: START, arrival: DESTINATION)
             return
@@ -250,6 +250,9 @@ extension ViewController: MKMapViewDelegate {
             case 0: // Dipendente
                 img = #imageLiteral(resourceName: "paolo")
                 rect = CGSize(width: 40, height: 40)
+            case 1: // drop
+                img = #imageLiteral(resourceName: "paolo")
+                rect = CGSize(width: 40, height: 40)
             default: // Posti disponibili
                 print("NOT RECOGNIZED")
             }
@@ -263,8 +266,8 @@ extension ViewController: MKMapViewDelegate {
                 rect = CGSize(width: 40, height: 40)
             }
             else {
-            img = #imageLiteral(resourceName: "pinRosso")
-            rect = CGSize(width: 40, height: 40)
+                img = #imageLiteral(resourceName: "pinRosso")
+                rect = CGSize(width: 40, height: 40)
             }
         } else {print("NOT RECOGNIZED")}
         UIGraphicsBeginImageContext(rect)
