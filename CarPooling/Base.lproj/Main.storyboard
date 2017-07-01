@@ -233,29 +233,46 @@
                                 <rect key="frame" x="30" y="514" width="312" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7Q-XH-ohd">
-                                        <rect key="frame" x="8" y="38" width="77" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 3" translatesAutoresizingMaskIntoConstraints="NO" id="cg2-Bc-bVN">
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="106"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Viaggio"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7Q-XH-ohd">
+                                        <rect key="frame" x="18" y="18" width="65" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Viaggio" image="Page 1-1"/>
                                         <connections>
                                             <segue destination="Hzp-De-BaH" kind="show" id="HQe-BH-Dbt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLT-IC-Jvb">
-                                        <rect key="frame" x="106" y="38" width="99" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLT-IC-Jvb">
+                                        <rect key="frame" x="235" y="18" width="62" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Passaggio"/>
+                                        <state key="normal" image="richiedipassaggio3">
+                                            <color key="titleColor" red="0.34045490622520447" green="0.032441496849060059" blue="0.92924672365188599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-9b-8Wm">
-                                        <rect key="frame" x="245" y="38" width="59" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-9b-8Wm">
+                                        <rect key="frame" x="135" y="23" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Utente"/>
+                                        <state key="normal" title="Utente" image="Page 1"/>
                                         <connections>
                                             <action selector="showProfile:" destination="J9j-Wz-CSg" eventType="touchUpInside" id="y5v-31-cpU"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Passaggio" translatesAutoresizingMaskIntoConstraints="NO" id="Ezk-T0-gIc">
+                                        <rect key="frame" x="236" y="81" width="60" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Utente" translatesAutoresizingMaskIntoConstraints="NO" id="IZb-p8-kx9">
+                                        <rect key="frame" x="138" y="81" width="45" height="13"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Viaggio" translatesAutoresizingMaskIntoConstraints="NO" id="Nuk-kk-3oP">
+                                        <rect key="frame" x="23" y="81" width="55" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -347,4 +364,13 @@
             <point key="canvasLocation" x="3407" y="162"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Page 1" width="135" height="141"/>
+        <image name="Page 1-1" width="183" height="156"/>
+        <image name="Passaggio" width="228" height="54"/>
+        <image name="Rectangle 3" width="165" height="69"/>
+        <image name="Utente" width="150" height="42"/>
+        <image name="Viaggio" width="168" height="54"/>
+        <image name="richiedipassaggio3" width="183" height="180"/>
+    </resources>
 </document>
