@@ -58,19 +58,19 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
         self.getDirections(start: START , arrival: TRAVEL[0])
         var point = PlaceAnnotation(location: TRAVEL[0], title: "\(0)", subtitle: "paologay")
-        point.type = -1
+        point.type = 0
         mapView.addAnnotation(point)
         if TRAVEL.count > 1 {
             for k in 0..<TRAVEL.count-1 {
                 self.getDirections(start: TRAVEL[k] , arrival: TRAVEL[k+1])
                 let point = PlaceAnnotation(location: TRAVEL[k], title: "\(k)", subtitle: "paologay")
-                point.type = -1
+                point.type = 0
                 mapView.addAnnotation(point)
             }
         }
         self.getDirections(start: TRAVEL[TRAVEL.count-1] , arrival: DESTINATION)
         point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "cftvgybh")
-        point.type = -1
+        point.type = 0
         mapView.addAnnotation(point)
     }
     
@@ -244,25 +244,28 @@ extension ViewController: MKMapViewDelegate {
         var img = #imageLiteral(resourceName: "pinfinalebianco")
         if let place = annotation as? PlaceAnnotation {
             switch place.type {
-            case -3: // Macchina libera 
-                img = #imageLiteral(resourceName: "pinBianco")
-                rect = CGSize(width: 40, height: 40)
-            case -2: // Azienda
+            case -1: // Azienda
                 img = #imageLiteral(resourceName: "PinRifornimento")
                 rect = CGSize(width: 40, height: 40)
-            case -1: // Dipendente
+            case 0: // Dipendente
                 img = #imageLiteral(resourceName: "paolo")
                 rect = CGSize(width: 40, height: 40)
-            case 0: // Macchina piena
-                img = #imageLiteral(resourceName: "pinfinalebianco")
-                rect = CGSize(width: 40, height: 40)
             default: // Posti disponibili
+                print("NOT RECOGNIZED")
+            }
+        } else if let car = annotation as? CarAnnotation{
+            if car.car.driver == nil {
+                img = #imageLiteral(resourceName: "pinsuperfinale")
+                rect = CGSize(width: 40, height: 40)
+            }
+            else if car.car.haPostiLiberi {
                 img = #imageLiteral(resourceName: "pinVerde")
                 rect = CGSize(width: 40, height: 40)
             }
-        } else if let car = annotation as? CarAnnotation{
-            img = #imageLiteral(resourceName: "pinsuperfinale")
+            else {
+            img = #imageLiteral(resourceName: "pinRosso")
             rect = CGSize(width: 40, height: 40)
+            }
         } else {print("NOT RECOGNIZED")}
         UIGraphicsBeginImageContext(rect)
         img.draw(in: CGRect(x: 0, y: 0, width: rect.width, height: rect.height))
