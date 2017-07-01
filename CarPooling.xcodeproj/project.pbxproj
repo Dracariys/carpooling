@@ -21,6 +21,7 @@
 		E77F1BDC1F06A7F6006FBC60 /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BDB1F06A7F6006FBC60 /* Travel.swift */; };
 		E77F1BDE1F06A8D7006FBC60 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */; };
 		E7F6A69F1F0797BE00605AB8 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F6A69E1F0797BE00605AB8 /* PlaceAnnotation.swift */; };
+		E7F6A6A11F079B0A00605AB8 /* ForthStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F6A6A01F079B0A00605AB8 /* ForthStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E77F1BDB1F06A7F6006FBC60 /* Travel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
 		E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E7F6A69E1F0797BE00605AB8 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		E7F6A6A01F079B0A00605AB8 /* ForthStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForthStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				E77F1BC31F069DB0006FBC60 /* LaunchScreen.storyboard */,
+				E77F1BBE1F069DB0006FBC60 /* Main.storyboard */,
 				E77F1BCC1F06A103006FBC60 /* SecondStoryboard.storyboard */,
 				E77F1BD11F06A143006FBC60 /* ThirdStoryboard.storyboard */,
-				E77F1BBE1F069DB0006FBC60 /* Main.storyboard */,
+				E7F6A6A01F079B0A00605AB8 /* ForthStoryboard.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				E77F1BD21F06A143006FBC60 /* ThirdStoryboard.storyboard in Resources */,
 				E77F1BC01F069DB0006FBC60 /* Main.storyboard in Resources */,
 				E77F1BD41F06A376006FBC60 /* HDAugmentedReality in Resources */,
+				E7F6A6A11F079B0A00605AB8 /* ForthStoryboard.storyboard in Resources */,
 				E77F1BCD1F06A103006FBC60 /* SecondStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
