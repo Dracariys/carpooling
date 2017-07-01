@@ -7,5 +7,19 @@
 //
 
 import Foundation
+import UIKit
 //8
 //Informazioni utente (possiamo usare un semplice bottone)
+
+class InfoUtente: UIViewController{
+    
+    override func viewDidLoad() {
+        
+    }
+    
+    
+    
+    
+    
+    
+}
