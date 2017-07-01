@@ -216,6 +216,33 @@
             </objects>
             <point key="canvasLocation" x="2650.4000000000001" y="163.26836581709148"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="jFt-xl-LpN">
+            <objects>
+                <viewController id="J9j-Wz-CSg" customClass="ViewController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rCt-6F-K7o"/>
+                        <viewControllerLayoutGuide type="bottom" id="2IB-4F-Log"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4rD-Wq-Wvx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZLa-49-Quy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZLa-49-Quy" id="nqS-HT-LVn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pi-3r-i1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984.8" y="192.95352323838082"/>
+        </scene>
         <!--Info Utente-->
         <scene sceneID="aD6-c4-cvL">
             <objects>
