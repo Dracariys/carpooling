@@ -18,16 +18,16 @@ class Travel{
     var car: Car
     var startLocation: CLLocation
     var stopLocation: CLLocation
-    var startTime:
-    var stopTime:
-    var distance: Double?
-    var travelTime:
-    var chilometriRisparmiati: Double?
-    var consumiRisparmiati: Double?
-    var emissioniCO2Evitate: Double?
-    var feedback: String?
+    var startTime:  String
+    var stopTime:   String
+    var distance: Double = 0
+    var travelTime: String = ""
+    var chilometriRisparmiati: Double = 0
+    var consumiRisparmiati: Double = 0
+    var emissioniCO2Evitate: Double = 0
+    var feedback: String = ""
     
-    init(car: Car, startLocation: CLLocation, stopLocation: CLLocation, startTime: , stopTime: ){
+    init(car: Car, startLocation: CLLocation, stopLocation: CLLocation, startTime: String , stopTime: String ){
         
         
         self.car = car
@@ -40,9 +40,6 @@ class Travel{
         
         
     }
-    
-    
-    
     
     
     

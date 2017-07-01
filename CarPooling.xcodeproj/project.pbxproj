@@ -16,7 +16,7 @@
 		44C66EED1F079E9400541921 /* RiepilogoArrivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EEC1F079E9400541921 /* RiepilogoArrivo.swift */; };
 		44C66EEF1F079F8E00541921 /* InfoUtente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EEE1F079F8E00541921 /* InfoUtente.swift */; };
 		44C66EF11F07A0CF00541921 /* RichiediPassaggio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EF01F07A0CF00541921 /* RichiediPassaggio.swift */; };
-		B89291841F06AC35000F8131 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89291831F06AC35000F8131 /* Driver.swift */; };
+		B89291841F06AC35000F8131 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89291831F06AC35000F8131 /* User.swift */; };
 		E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */; };
 		E77F1BBD1F069DB0006FBC60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F1BBC1F069DB0006FBC60 /* ViewController.swift */; };
 		E77F1BC01F069DB0006FBC60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77F1BBE1F069DB0006FBC60 /* Main.storyboard */; };
@@ -43,7 +43,7 @@
 		44C66EEC1F079E9400541921 /* RiepilogoArrivo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiepilogoArrivo.swift; sourceTree = "<group>"; };
 		44C66EEE1F079F8E00541921 /* InfoUtente.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoUtente.swift; sourceTree = "<group>"; };
 		44C66EF01F07A0CF00541921 /* RichiediPassaggio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichiediPassaggio.swift; sourceTree = "<group>"; };
-		B89291831F06AC35000F8131 /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		B89291831F06AC35000F8131 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E77F1BB71F069DAF006FBC60 /* CarPooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarPooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77F1BBA1F069DB0006FBC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77F1BBC1F069DB0006FBC60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				E77F1BDB1F06A7F6006FBC60 /* Travel.swift */,
 				E7F6A69E1F0797BE00605AB8 /* PlaceAnnotation.swift */,
 				E77F1BDD1F06A8D7006FBC60 /* Extensions.swift */,
-				B89291831F06AC35000F8131 /* Driver.swift */,
+				B89291831F06AC35000F8131 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 				44C66EE11F079CBD00541921 /* SelezionePercorso.swift in Sources */,
 				44C66EE31F079D1900541921 /* CollectionViewPartenza.swift in Sources */,
 				44C66EEB1F079E3900541921 /* Autista.swift in Sources */,
-				B89291841F06AC35000F8131 /* Driver.swift in Sources */,
+				B89291841F06AC35000F8131 /* User.swift in Sources */,
 				E77F1BDA1F06A7D7006FBC60 /* Place.swift in Sources */,
 				E77F1BBB1F069DB0006FBC60 /* AppDelegate.swift in Sources */,
 				44C66EED1F079E9400541921 /* RiepilogoArrivo.swift in Sources */,

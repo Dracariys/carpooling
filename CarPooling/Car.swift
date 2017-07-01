@@ -14,7 +14,7 @@ import MapKit
 class Car {
     
     
-    var driver: Driver
+    var driver: User?
     var name: String
     var position: CLLocation
     var age: Int?
@@ -23,12 +23,14 @@ class Car {
     var todayMileage: Double? //chilometri percorsi oggi. NOTA: comm cazz s calcola?
     var risparmioPerChilometro: Double?
     var risparmioGiornaliero: Double?
+    var max_posti: Int
+    var passeggeri: [User] = []
+    var haPostiLiberi = true
     
     
-    init(name: String, driver: Driver){
+    init(name: String){
         
         self.name = name
-        self.driver = driver
         position = CLLocation(latitude: 0, longitude: 0)
         age = 0
         mileage = 0
@@ -36,20 +38,14 @@ class Car {
         todayMileage = 0
         risparmioPerChilometro = 0
         risparmioGiornaliero = 0
+        max_posti = 4
         
         
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+        
     
     
     
