@@ -27,6 +27,7 @@
 		B870439D1F080D8900449323 /* CarsAvailableViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */; };
 		B870439F1F0813D900449323 /* CarsAvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439E1F0813D900449323 /* CarsAvailableCell.swift */; };
 		B87043A11F08358200449323 /* ListaDiDriversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043A01F08358200449323 /* ListaDiDriversViewController.swift */; };
+		B87043A51F08DD9F00449323 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043A41F08DD9F00449323 /* FeedbackViewController.swift */; };
 		B89291841F06AC35000F8131 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89291831F06AC35000F8131 /* User.swift */; };
 		E710ECE71F07DCB4005B9975 /* PoisAziende.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE61F07DCB4005B9975 /* PoisAziende.swift */; };
 		E710ECE91F07F6DE005B9975 /* MessageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */; };
@@ -66,6 +67,7 @@
 		B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableViaggioController.swift; sourceTree = "<group>"; };
 		B870439E1F0813D900449323 /* CarsAvailableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableCell.swift; sourceTree = "<group>"; };
 		B87043A01F08358200449323 /* ListaDiDriversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaDiDriversViewController.swift; sourceTree = "<group>"; };
+		B87043A41F08DD9F00449323 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B89291831F06AC35000F8131 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E710ECE61F07DCB4005B9975 /* PoisAziende.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PoisAziende.swift; path = ../PoisAziende.swift; sourceTree = "<group>"; };
 		E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageServiceManager.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */,
 				B87043A01F08358200449323 /* ListaDiDriversViewController.swift */,
 				4410C6551F084EFF008C6280 /* RiepilogoViaggioViewController.swift */,
+				B87043A41F08DD9F00449323 /* FeedbackViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				E710ECE91F07F6DE005B9975 /* MessageServiceManager.swift in Sources */,
 				44C66EE11F079CBD00541921 /* SelezionePercorso.swift in Sources */,
 				44C66EE31F079D1900541921 /* CollectionViewPartenza.swift in Sources */,
+				B87043A51F08DD9F00449323 /* FeedbackViewController.swift in Sources */,
 				44C66EEB1F079E3900541921 /* Autista.swift in Sources */,
 				B870439D1F080D8900449323 /* CarsAvailableViaggioController.swift in Sources */,
 				B89291841F06AC35000F8131 /* User.swift in Sources */,
