@@ -56,7 +56,6 @@ class PartenzaViaggioController: UIViewController, UICollectionViewDelegate, UIC
             
             
         partenza = nomeDaPassare
-            print(partenza)
             
             
         }
@@ -68,8 +67,9 @@ class PartenzaViaggioController: UIViewController, UICollectionViewDelegate, UIC
         
         indicePartenza = indexPath.row
         performSegue(withIdentifier: "partenzaToArrivoSegue2", sender: nil)
-        
-        
+        partenza = self.partenzaLuoghi[indexPath.row]
+        print(partenza)
+
     }
 
 
