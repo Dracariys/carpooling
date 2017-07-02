@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class RiepilogoViaggioViewController: UIViewController, MessageServiceManagerDelegate {
 
@@ -21,7 +22,20 @@ class RiepilogoViaggioViewController: UIViewController, MessageServiceManagerDel
     }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
-        
+        let opCodes = message.components(separatedBy: "_")
+        let part = CLLocationCoordinate2D(latitude: Double(opCodes[1])!, longitude: Double(opCodes[2])!)
+        let arr = CLLocationCoordinate2D(latitude: Double(opCodes[3])!, longitude: Double(opCodes[4])!)
+        if(opCodes[0] == "MAP"){
+            if(opCodes.count>4){
+                START=part
+                DESTINATION=arr
+                for k in 5..<opCodes.count{
+                    if(k%2==1){
+                        TRAVEL.append((CLLocationCoordinate2D(latitude: Double(opCodes[k])!, longitude: Double(opCodes[k+1])!),"Waypoint"))
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {

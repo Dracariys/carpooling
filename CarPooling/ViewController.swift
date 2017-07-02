@@ -278,7 +278,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             mapView.addAnnotation(veicles[k].1)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            print(calculateEfficiency())
             //askRide(partenza, arrivo)
             self.refreshCar()
         }
