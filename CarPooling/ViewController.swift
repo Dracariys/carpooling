@@ -11,14 +11,10 @@ import MapKit
 import CoreLocation
 //Master
 
-var TRAVEL : [CLLocationCoordinate2D] = [
-    CLLocationCoordinate2D(latitude: 42.767863, longitude: 11.144630)
-    ,CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345)
-    ] {
-    didSet {
-        
-    }
-}
+var TRAVEL : [(CLLocationCoordinate2D,String)] = [
+    (CLLocationCoordinate2D(latitude: 42.767863, longitude: 11.144630),"USER Gino D'Acampo")
+    ,(CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345),"DROP Gino D'Acampo")
+    ]
 
 
 
@@ -41,8 +37,6 @@ var acceptedUsers : [(String,Int)] = []
 
 var START : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788)
 var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.926094, longitude: 12.302646)
-var DROPLOCATION : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345)]
-
 var Distances : [Int] = []
 
 let messageService = MessageServiceManager(serviceName: "ShareSeat")
@@ -73,6 +67,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
+        let opCodes = message.components(separatedBy: " ")
         var ut : [String] = []
         for user in USERS {
             ut.append(user.name)
@@ -83,33 +78,42 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         for rejected in rejectedUsers {
             ut = ut.filter({$0 != rejected})
         }
-        if(ut.contains(message)){
-        let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 20km(30:00), ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
-        var rect = CGSize(width: 50, height: 50)
-        UIGraphicsBeginImageContext(rect)
-        let vista = (UIImageView(frame: CGRect(x: 10, y: 10, width: 50, height: 50)))
-        vista.image = USERS.filter({$0.name == message}).first?.image
-        alert.view.addSubview(vista)
-        let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in
-            acceptedUsers.append((message,100000))
-            self.newPlace()
-        })
-        let action2 = UIAlertAction(title: "No!", style: .cancel, handler: {_ in
-            rejectedUsers.append(message)
-        })
-        alert.addAction(action)
-        alert.addAction(action2)
-        self.present(alert, animated: true)
+        if(ut.contains(opCodes[0])){
+            let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 20km(30:00), ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
+            var rect = CGSize(width: 50, height: 50)
+            UIGraphicsBeginImageContext(rect)
+            let vista = (UIImageView(frame: CGRect(x: 10, y: 10, width: 50, height: 50)))
+            vista.image = USERS.filter({$0.name == message}).first?.image
+            alert.view.addSubview(vista)
+            let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in
+                acceptedUsers.append((message,100000))
+                let part = CLLocationCoordinate2D(latitude: Double(opCodes[1])!, longitude: Double(opCodes[2])!)
+                let arr = CLLocationCoordinate2D(latitude: Double(opCodes[3])!, longitude: Double(opCodes[4])!)
+                self.newPlace(part,arr,opCodes[0])
+            })
+            let action2 = UIAlertAction(title: "No!", style: .cancel, handler: {_ in
+                rejectedUsers.append(message)
+            })
+            alert.addAction(action)
+            alert.addAction(action2)
+            self.present(alert, animated: true)
         }
     }
     
-    func newPlace(){
+    func newPlace(_ part : CLLocationCoordinate2D,_ arr : CLLocationCoordinate2D,_ user : String){
         Distances = []
         mapView.removeOverlays(mapView.overlays)
         let loc = CLLocationCoordinate2D(latitude: 44.786133, longitude: 11.225345)
-        TRAVEL.append(loc)
+        TRAVEL.append((part,"USER "+user))
+        TRAVEL.append((arr,"DROP "+user))
         travelMaking {
         }
+    }
+    
+    func askRide(_ part : String,_ arrival : String){
+        var par = String(LIVORNO.latitude) + " " + String(LIVORNO.longitude)
+        var arr = String(TORINO.latitude) + " " + String(TORINO.longitude)
+        messageService.sendToAll(message: currentUser + " " + par + " " + arr)
     }
     
     func travelMaking(handler: @escaping () -> Void){
@@ -124,7 +128,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
                     let legs = r.value(forKey: "legs") as! [NSDictionary]
                     let warnings = r.value(forKey: "warnings")
                     let overview_polyline = r.value(forKey: "overview_polyline")
-                    TRAVEL = ordeBySecond(toOrder: TRAVEL, indexes: waypoint_order) as! [CLLocationCoordinate2D]
+                    TRAVEL = ordeBySecond(toOrder: TRAVEL, indexes: waypoint_order) as! [(CLLocationCoordinate2D,String)]
                     handler(self.findAndDraw())
                 }
             }
@@ -136,31 +140,30 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             self.getDirections(start: START, arrival: DESTINATION)
             return
         }
-        var userCount = 0
-        self.getDirections(start: START , arrival: TRAVEL[0])
+        self.getDirections(start: START , arrival: TRAVEL[0].0)
         if TRAVEL.count > 1 {
             for k in 0..<TRAVEL.count-1 {
-                self.getDirections(start: TRAVEL[k] , arrival: TRAVEL[k+1])
-                let point = PlaceAnnotation(location: TRAVEL[k], title: "\(k)", subtitle: "nil")
-                if DROPLOCATION.contains(where: {$0 == TRAVEL[k]}) {
+                self.getDirections(start: TRAVEL[k].0 , arrival: TRAVEL[k+1].0)
+                var point = PlaceAnnotation(location: TRAVEL[k].0, title: "\(k)", subtitle: TRAVEL[k].1)
+                if TRAVEL[k].1.contains("DROP") {
+                    point = PlaceAnnotation(location: TRAVEL[k].0, title: "Arrivo Passeggero", subtitle: TRAVEL[k].1.replacingOccurrences(of: "DROP", with: ""))
                     point.type = 1
-                } else {
-                    point.subtitle = acceptedUsers[userCount].0
-                    userCount+=1
+                } else if TRAVEL[k].1.contains("USER"){
+                    point = PlaceAnnotation(location: TRAVEL[k].0, title: "Salita Passeggero",subtitle: TRAVEL[k].1.replacingOccurrences(of: "USER ", with: ""))
                     point.type = -1
-                }
+                } else {point.type = 0}
                 mapView.addAnnotation(point)
             }
         }
-        self.getDirections(start: TRAVEL[TRAVEL.count-1] , arrival: DESTINATION)
-        let point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "nil")
-        if DROPLOCATION.contains(where: {$0 == TRAVEL[TRAVEL.count-1]}) {
+        self.getDirections(start: TRAVEL[TRAVEL.count-1].0 , arrival: DESTINATION)
+        var point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1].0, title: "end", subtitle: "nil")
+        if TRAVEL[TRAVEL.count-1].1.contains("DROP") {
+            point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1].0, title: "Arrivo Passeggero", subtitle: TRAVEL[TRAVEL.count-1].1.replacingOccurrences(of: "DROP", with: ""))
             point.type = 1
-        } else {
-            point.subtitle = acceptedUsers[userCount].0
-            userCount+=1
+        } else if TRAVEL[TRAVEL.count-1].1.contains("USER"){
+            point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1].0, title: "Salita Passeggero", subtitle: TRAVEL[TRAVEL.count-1].1.replacingOccurrences(of: "USER ", with: ""))
             point.type = -1
-        }
+        } else {point.type = 0}
         mapView.addAnnotation(point)
     }
     
@@ -180,11 +183,10 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
         generateVeicle(CARS.count)
         refreshCar()
-        messageService.sendToAll(message: currentUser)
         DispatchQueue.main.asyncAfter(deadline: .now() + 5){
-         //   self.newPlace()
         }
     }
+    
     
     
     
@@ -247,8 +249,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             print(calculateEfficiency())
-            messageService.sendToAll(message: currentUser)
-            //newuser
+            self.askRide("", "")
             self.refreshCar()
         }
     }
@@ -300,20 +301,20 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
 }
 
-func routeUrlCreate(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationCoordinate2D , _ waypoints : [CLLocationCoordinate2D]) -> String{
+func routeUrlCreate(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationCoordinate2D , _ waypoints : [(CLLocationCoordinate2D,String)]) -> String{
     var basicUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&key=AIzaSyAGjTDcNLXG5OVuluxG3MvSNiMbDJMUlns"
     if waypoints.count != 0 {
         basicUrl =
         "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&waypoints=optimize:true"
         for wp in waypoints {
-            basicUrl.append("|\(wp.latitude),\(wp.longitude)")
+            basicUrl.append("|\(wp.0.latitude),\(wp.0.longitude)")
         }
         basicUrl.append("&key=AIzaSyAGjTDcNLXG5OVuluxG3MvSNiMbDJMUlns")
     }
     return basicUrl
 }
 
-func getCompletePath(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationCoordinate2D ,_  waypoints : [CLLocationCoordinate2D], handler: @escaping (NSDictionary?, NSError?) -> Void){
+func getCompletePath(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationCoordinate2D ,_  waypoints : [(CLLocationCoordinate2D,String)], handler: @escaping (NSDictionary?, NSError?) -> Void){
     let url = routeUrlCreate(departure,arrival,waypoints)
     let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
     let session = URLSession(configuration: URLSessionConfiguration.default)
@@ -381,6 +382,7 @@ extension ViewController: MKMapViewDelegate {
                 img = #imageLiteral(resourceName: "Roma")
                 rect = CGSize(width: 40, height: 40)
             case -1: // Dipendente
+                print(place.subtitle)
                 let dipendente = UIImage(named: (USERS.filter({$0.name == place.subtitle}).first?.id)!)
                 img = dipendente!
                 rect = CGSize(width: 50, height: 50)
