@@ -11,12 +11,31 @@ import UIKit
 class RiepilogoViaggioViewController: UIViewController {
 
     
+    var seiPasseggero: Bool?
+    
+    @IBOutlet weak var askPasseggero: UIButton!
+    @IBOutlet weak var confermaButton: UIButton!
    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if seiPasseggero == true {
+            
+            askPasseggero.isEnabled = false
+            askPasseggero.isHidden = true
+            
+            confermaButton.layer.position.y = 577
+            
+        }else{
+            
+            askPasseggero.isEnabled = true
+            askPasseggero.isHidden = false
+            
+            confermaButton.layer.position.y = 632
+            
+        }
         // Do any additional setup after loading the view.
     }
 

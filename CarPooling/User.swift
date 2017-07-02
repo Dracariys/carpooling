@@ -18,26 +18,56 @@ class User {
     var id: String
     var phone: String?
     var image: UIImage?
-    var rankings: [Double]
+    var rankings: [Double] = []
     var age: Int?
     var role: String?
     var yearsOfExperience: Int?
     var azienda: String
     
     
+    
+    func fillRankings(){
+        
+        
+        for _ in 0...arc4random_uniform(10){
+            
+            var rank: Int = 0
+            
+            while (rank == 0){
+                
+                rank = Int(UInt32(arc4random_uniform(10)))
+                
+            }
+            
+            rankings.append(Double(rank))
+            
+        }
+        
+    }
+        
+        
+        
+    
+    
+    
     init(id: String){
+        
+        
         
         self.id = id
         name = ""
         phone = ""
         image = #imageLiteral(resourceName: "omino")
-        rankings = []
         age = 0
         role = ""
         yearsOfExperience = 0
         azienda = ""
+     
+        fillRankings()
+        
         
     }
+    
     
     init(id: String, name: String) {
         
@@ -45,12 +75,12 @@ class User {
         self.id = id
         phone = ""
         image = #imageLiteral(resourceName: "omino")
-        rankings = []
         age = 0
         role = ""
         yearsOfExperience = 0
         azienda = ""
         
+        fillRankings()
         
         
     }
@@ -61,17 +91,16 @@ class User {
         self.id = id
         phone = ""
         self.image = image
-        rankings = []
         age = 0
         role = ""
         yearsOfExperience = 0
         azienda = ""
         
-        
+        fillRankings()
         
     }
     
-    func getAverageRanking()->Double{
+    func getAverageRanking()->Int{
         
         var sum = 0.0
         
@@ -81,7 +110,7 @@ class User {
             
         }
         
-        return sum / Double(rankings.count)
+        return Int(sum) / rankings.count
         
         
     }

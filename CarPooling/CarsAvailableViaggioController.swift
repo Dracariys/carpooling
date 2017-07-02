@@ -79,7 +79,18 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
     }
     
     
- 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "riepilogoSegue" {
+            
+            let destination = segue.destination as! RiepilogoViaggioViewController
+            
+            destination.seiPasseggero = false
+            
+        }
+        
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -30,6 +30,21 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "riepilogoSegue" {
+            
+            let destination = segue.destination as! RiepilogoViaggioViewController
+            
+            destination.seiPasseggero = true
+            
+        }
+        
+        
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "riepilogoSegue", sender: nil)
@@ -53,9 +68,10 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         cell.carImage.layer.cornerRadius = cell.carImage.frame.size.width / 2
         cell.carImage.layer.masksToBounds = true
         cell.carImage.image = arrayOfCars[indexPath.row].image
-        cell.carName.text = "Auto: " + arrayOfCars[indexPath.row].name
+        cell.carName.text = arrayOfCars[indexPath.row].name
         cell.idLabel.text = "ID: " + USERS[indexPath.row].id
         cell.distanceLabel.text = "Distanza: " + String(arc4random_uniform(UInt32(200.d))) + " km"
+        cell.rankLabel.text = "Share Rank: " + String(USERS[indexPath.row].getAverageRanking())
         
         switch arrayOfCars[indexPath.row].efficiency {
         case 1:
