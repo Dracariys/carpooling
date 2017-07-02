@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -432,6 +432,9 @@
                                 <state key="normal" title="Conferma" backgroundImage="Rectangle 8">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6VG-7Z-ibG" kind="show" id="Ld6-uU-3gP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmB-w7-kB6">
                                 <rect key="frame" x="16" y="28" width="138" height="50"/>
@@ -452,9 +455,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="6VG-7Z-ibG" kind="show" identifier="confermaViaggioSegue" id="v9R-o0-Rh3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="se6-1h-csU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -463,7 +463,7 @@
         <!--View Controller-->
         <scene sceneID="Vhl-Fy-vCR">
             <objects>
-                <viewController id="6VG-7Z-ibG" sceneMemberID="viewController">
+                <viewController id="6VG-7Z-ibG" customClass="ViewController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MFz-fG-mwW"/>
                         <viewControllerLayoutGuide type="bottom" id="MPd-wd-gty"/>
@@ -479,6 +479,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ORt-OM-t9m" id="4G8-er-qVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CbY-6K-yte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1086,9 +1089,9 @@
         <image name="rickdirectrotonda" width="645" height="645"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wly-rg-1hm"/>
+        <segue reference="KaO-rS-43S"/>
         <segue reference="cf1-2F-n06"/>
         <segue reference="0Ad-Ad-Uxb"/>
-        <segue reference="KaO-rS-43S"/>
+        <segue reference="wly-rg-1hm"/>
     </inferredMetricsTieBreakers>
 </document>
