@@ -14,6 +14,8 @@ class ArrivoViaggioController: UIViewController, UICollectionViewDataSource, UIC
     var arrivoFoto = [UIImage(named: "Napoli"), UIImage(named: "Roma"), UIImage(named: "Bologna"), UIImage(named: "Milano")]
     
     var indicePartenza: Int = 0
+    var nomeDaPassare: String!
+
     
     
     
@@ -34,7 +36,8 @@ class ArrivoViaggioController: UIViewController, UICollectionViewDataSource, UIC
         //impostiamo l'immagine e il testo della label con quelli precedentemente dichiarati nelle due variabili
         cell.arrivoImage?.image = self.arrivoFoto[indexPath.row]
         cell.arrivoLabel?.text = self.arrivoLuoghi[indexPath.row]
-        
+        nomeDaPassare = cell.arrivoLabel.text
+
         return cell
         
     }
@@ -43,6 +46,8 @@ class ArrivoViaggioController: UIViewController, UICollectionViewDataSource, UIC
         
         performSegue(withIdentifier: "carsAvailableListSegue", sender: nil)
         
-        
+        arrivo = self.arrivoLuoghi[indexPath.row]
+
+        print(arrivo)
     }
 }
