@@ -67,7 +67,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
-        let opCodes = message.components(separatedBy: " ")
+        let opCodes = message.components(separatedBy: "_")
         var ut : [String] = []
         for user in USERS {
             ut.append(user.name)
@@ -111,9 +111,9 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func askRide(_ part : String,_ arrival : String){
-        var par = String(LIVORNO.latitude) + " " + String(LIVORNO.longitude)
-        var arr = String(TORINO.latitude) + " " + String(TORINO.longitude)
-        messageService.sendToAll(message: currentUser + " " + par + " " + arr)
+        var par = String(LIVORNO.latitude) + "_" + String(LIVORNO.longitude)
+        var arr = String(TORINO.latitude) + "_" + String(TORINO.longitude)
+        messageService.sendToAll(message: currentUser + "_" + par + "_" + arr)
     }
     
     func travelMaking(handler: @escaping () -> Void){
