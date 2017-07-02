@@ -10,6 +10,7 @@
 		4410C6561F084EFF008C6280 /* RiepilogoViaggioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410C6551F084EFF008C6280 /* RiepilogoViaggioViewController.swift */; };
 		4410C6581F085633008C6280 /* RickDirectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410C6571F085633008C6280 /* RickDirectorCell.swift */; };
 		4410C65A1F0857E8008C6280 /* RickDirectoCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410C6591F0857E8008C6280 /* RickDirectoCell2.swift */; };
+		4410C65C1F08D4D8008C6280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4410C65B1F08D4D8008C6280 /* Assets.xcassets */; };
 		44C66EE11F079CBD00541921 /* SelezionePercorso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EE01F079CBD00541921 /* SelezionePercorso.swift */; };
 		44C66EE31F079D1900541921 /* CollectionViewPartenza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EE21F079D1900541921 /* CollectionViewPartenza.swift */; };
 		44C66EE51F079D2800541921 /* CollectionViewArrivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EE41F079D2800541921 /* CollectionViewArrivo.swift */; };
@@ -26,7 +27,6 @@
 		B870439D1F080D8900449323 /* CarsAvailableViaggioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */; };
 		B870439F1F0813D900449323 /* CarsAvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B870439E1F0813D900449323 /* CarsAvailableCell.swift */; };
 		B87043A11F08358200449323 /* ListaDiDriversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87043A01F08358200449323 /* ListaDiDriversViewController.swift */; };
-		B87043A31F08CFED00449323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B87043A21F08CFED00449323 /* Assets.xcassets */; };
 		B89291841F06AC35000F8131 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89291831F06AC35000F8131 /* User.swift */; };
 		E710ECE71F07DCB4005B9975 /* PoisAziende.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE61F07DCB4005B9975 /* PoisAziende.swift */; };
 		E710ECE91F07F6DE005B9975 /* MessageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */; };
@@ -49,6 +49,7 @@
 		4410C6551F084EFF008C6280 /* RiepilogoViaggioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiepilogoViaggioViewController.swift; sourceTree = "<group>"; };
 		4410C6571F085633008C6280 /* RickDirectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RickDirectorCell.swift; sourceTree = "<group>"; };
 		4410C6591F0857E8008C6280 /* RickDirectoCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RickDirectoCell2.swift; sourceTree = "<group>"; };
+		4410C65B1F08D4D8008C6280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44C66EE01F079CBD00541921 /* SelezionePercorso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelezionePercorso.swift; sourceTree = "<group>"; };
 		44C66EE21F079D1900541921 /* CollectionViewPartenza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPartenza.swift; sourceTree = "<group>"; };
 		44C66EE41F079D2800541921 /* CollectionViewArrivo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewArrivo.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		B870439C1F080D8900449323 /* CarsAvailableViaggioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableViaggioController.swift; sourceTree = "<group>"; };
 		B870439E1F0813D900449323 /* CarsAvailableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAvailableCell.swift; sourceTree = "<group>"; };
 		B87043A01F08358200449323 /* ListaDiDriversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaDiDriversViewController.swift; sourceTree = "<group>"; };
-		B87043A21F08CFED00449323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		B89291831F06AC35000F8131 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E710ECE61F07DCB4005B9975 /* PoisAziende.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PoisAziende.swift; path = ../PoisAziende.swift; sourceTree = "<group>"; };
 		E710ECE81F07F6DE005B9975 /* MessageServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageServiceManager.swift; sourceTree = "<group>"; };
@@ -101,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				E77F1BB91F069DB0006FBC60 /* CarPooling */,
-				B87043A21F08CFED00449323 /* Assets.xcassets */,
 				E77F1BB81F069DAF006FBC60 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +120,7 @@
 				E77F1BCF1F06A11F006FBC60 /* View */,
 				E77F1BD01F06A12B006FBC60 /* Controller */,
 				E77F1BC61F069DB0006FBC60 /* Info.plist */,
+				4410C65B1F08D4D8008C6280 /* Assets.xcassets */,
 			);
 			path = CarPooling;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				E77F1BD21F06A143006FBC60 /* ThirdStoryboard.storyboard in Resources */,
 				E77F1BC01F069DB0006FBC60 /* Main.storyboard in Resources */,
 				E77F1BD41F06A376006FBC60 /* HDAugmentedReality in Resources */,
-				B87043A31F08CFED00449323 /* Assets.xcassets in Resources */,
+				4410C65C1F08D4D8008C6280 /* Assets.xcassets in Resources */,
 				E7F6A6A11F079B0A00605AB8 /* ForthStoryboard.storyboard in Resources */,
 				E77F1BCD1F06A103006FBC60 /* SecondStoryboard.storyboard in Resources */,
 			);
