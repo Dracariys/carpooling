@@ -690,6 +690,16 @@
                                 <rect key="frame" x="-2" y="-1" width="376" height="665"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AN3-Hm-ivG">
+                                <rect key="frame" x="106" y="601" width="162" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Fine" backgroundImage="Rectangle 2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAlert:" destination="6VG-7Z-ibG" eventType="touchUpInside" id="YiF-Pv-fRO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1379,11 +1389,11 @@
         <image name="trophy" width="66" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Ad-Ad-Uxb"/>
-        <segue reference="raY-48-xZj"/>
-        <segue reference="vd8-eZ-jsk"/>
         <segue reference="cf1-2F-n06"/>
+        <segue reference="WUm-Sy-juS"/>
         <segue reference="JwS-8y-oQC"/>
+        <segue reference="vd8-eZ-jsk"/>
+        <segue reference="raY-48-xZj"/>
         <segue reference="TZj-pk-wl3"/>
         <segue reference="XOp-tl-ltU"/>
     </inferredMetricsTieBreakers>

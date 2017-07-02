@@ -62,6 +62,15 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     func connectedDevicesChanged(manager: MessageServiceManager, connectedDevices: [String]) {
         
     }
+   
+    @IBAction func showAlert(_ sender: Any) {
+        let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo 30 Minuti, Emissioni Co2 evitate : 202.0 (g/km)", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
         var ut : [String] = []
