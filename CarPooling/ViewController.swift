@@ -58,6 +58,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     func connectedDevicesChanged(manager: MessageServiceManager, connectedDevices: [String]) {
         
     }
+
    
     @IBAction func showAlert(_ sender: Any) {
         let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo \(calculateEfficiency().0) Minuti, Emissioni Co2 evitate : \(calculateEfficiency().1*100) (mg/km)", preferredStyle: .alert)

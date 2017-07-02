@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -35,10 +36,8 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let arrayOfCars = CARS.sorted { $0.efficiency > $1.efficiency }
-        
+        var arrayOfCars = CARS.sorted { $0.efficiency > $1.efficiency }
         let cell = tableView.dequeueReusableCell(withIdentifier: "carCell") as! CarsAvailableCell
-        
         cell.autoName.text = arrayOfCars[indexPath.row].name
         cell.carImage.image = arrayOfCars[indexPath.row].image
         cell.consumi.text = "Risparmio evargetico: " + String(arc4random_uniform(UInt32(150))) + "%"

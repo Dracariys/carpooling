@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -57,11 +58,18 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    func distanceBetweenPoints(_ from: CLLocationCoordinate2D,_ to: CLLocationCoordinate2D) -> Int {
+        let fromL = CLLocation(latitude: from.latitude, longitude: from.longitude)
+        let toL = CLLocation(latitude: to.latitude, longitude: to.longitude)
+        return Int(toL.distance(from: fromL))
+    }
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let arrayOfCars = CARS.sorted { $0.efficiency > $1.efficiency }
-        
+        var arrayOfCars = CARS.sorted { $0.efficiency > $1.efficiency }
+        arrayOfCars = arrayOfCars.sorted(by: {distanceBetweenPoints($0.position,ROMA)/$0.efficiency/1000 < distanceBetweenPoints($1.position,ROMA)/$1.efficiency/1000})
         let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell") as! DriverDetailsCell
         
         cell.driverName.text = "Autista: " + USERS[indexPath.row].name
@@ -70,7 +78,7 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         cell.carImage.image = arrayOfCars[indexPath.row].image
         cell.carName.text = arrayOfCars[indexPath.row].name
         cell.idLabel.text = "ID: " + USERS[indexPath.row].id
-        cell.distanceLabel.text = "Distanza: " + String(arc4random_uniform(UInt32(200.d))) + " km"
+        cell.distanceLabel.text = "Distanza: " + String(distanceBetweenPoints(arrayOfCars[indexPath.row].position,ROMA)/1000) + " km"
         cell.rankLabel.text = "Share Rank: " + String(USERS[indexPath.row].getAverageRanking())
         
         switch arrayOfCars[indexPath.row].efficiency {
