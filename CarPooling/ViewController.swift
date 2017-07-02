@@ -337,11 +337,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             rou += (Int(route.distance))
         }
         self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-        /*
-        for a in rou {
-            print("\(CLLocationCoordinate2D(latitude: a.latitude, longitude: a.longitude)),")
-        }
-         */
         return rou
     }
 
