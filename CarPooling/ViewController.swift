@@ -61,8 +61,22 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
 
    
     @IBAction func showAlert(_ sender: Any) {
-        let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo \(calculateEfficiency().0) Minuti, Emissioni Co2 evitate : \(calculateEfficiency().1*100) (mg/km)", preferredStyle: .alert)
-        
+        let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo \(calculateEfficiency().0/1600) Minuti\nCo2 evitato : \(250-(calculateEfficiency().1*100).truncate(places: 2)) (mg/km) \nRisparmio : \(100-(calculateEfficiency().1*100).truncate(places: 2))%", preferredStyle: .alert)
+        let vista = (UIImageView(frame: CGRect(x: 40, y: 50, width: 20, height: 20)))
+        vista.image = #imageLiteral(resourceName: "orologio3")
+        vista.layer.cornerRadius = 10
+        vista.clipsToBounds=true
+        alertController.view.addSubview(vista)
+        let vista2 = (UIImageView(frame: CGRect(x: 40, y: 80, width: 20, height: 20)))
+        vista2.image = #imageLiteral(resourceName: "co2")
+        vista2.layer.cornerRadius = 10
+        vista2.clipsToBounds=true
+        alertController.view.addSubview(vista2)
+        let vista3 = (UIImageView(frame: CGRect(x: 40, y: 110, width: 20, height: 20)))
+        vista3.image = #imageLiteral(resourceName: "Passeggero")
+        vista3.layer.cornerRadius = 10
+        vista3.clipsToBounds=true
+        alertController.view.addSubview(vista3)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in self.performSegue(withIdentifier: "backToSignIn", sender: self)})
         alertController.addAction(defaultAction)
         
@@ -100,11 +114,14 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
         else if(ut.contains(opCodes[0])){
             let newLenght = distanceNewPercorso
-            let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(opCodes[0]).Il viaggio si allungherà di \(newLenght/500)km, \(newLenght/850):00 minuti, ma acquisirai \(10 + newLenght/1000 % 100)pt", preferredStyle: UIAlertControllerStyle.actionSheet)
+            let alert = UIAlertController(title: "Nuovo Passeggero",
+            message: "\n\(opCodes[0]) ti cha chiesto un passaggio, accetti?\n-:Se accetti:-\n- Distanza +\(newLenght/500)km\n-Tempo +\(newLenght/850) minuti\n-PUNTI +!!\(10 + newLenght/1000 % 100)pt!!", preferredStyle: UIAlertControllerStyle.actionSheet)
             var rect = CGSize(width: 50, height: 50)
             UIGraphicsBeginImageContext(rect)
-            let vista = (UIImageView(frame: CGRect(x: 10, y: 10, width: 50, height: 50)))
-            vista.image = USERS.filter({$0.name == message}).first?.image
+            let vista = (UIImageView(frame: CGRect(x: 10, y: 70, width: 80, height: 80)))
+            vista.image = USERS.filter({$0.name == opCodes[0]}).first?.image
+            vista.layer.cornerRadius = 40
+            vista.clipsToBounds=true
             alert.view.addSubview(vista)
             let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in
                 acceptedUsers.append((opCodes[0],100000))
@@ -424,7 +441,8 @@ extension ViewController: MKMapViewDelegate {
         if let place = annotation as? PlaceAnnotation {
             switch place.type {
             case 0: // Azienda
-                img = #imageLiteral(resourceName: "Roma")
+                print(place.title!.replacingOccurrences(of: "Sede ", with: ""))
+                img = UIImage(named: place.title!.replacingOccurrences(of: "Sede ", with: ""))!
                 rect = CGSize(width: 40, height: 40)
             case -1: // Dipendente
                 print(place.subtitle)

@@ -10,8 +10,8 @@ import UIKit
 
 class ArrivoViaggioController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
-    var arrivoLuoghi = ["Napoli", "Roma", "Bologna", "Milano"]
-    var arrivoFoto = [UIImage(named: "Napoli"), UIImage(named: "Roma"), UIImage(named: "Bologna"), UIImage(named: "Milano")]
+    var arrivoLuoghi = ["Napoli", "Roma", "Bologna", "Milano","Torino","Firenze","Cosenza","Livorno","Bari","Genova","Trento"]
+    var arrivoFoto = [#imageLiteral(resourceName: "Napoli2"),#imageLiteral(resourceName: "Roma2"),#imageLiteral(resourceName: "Bologna2"),#imageLiteral(resourceName: "Milano2")]
     
     var indicePartenza: Int = 0
     var nomeDaPassare: String!

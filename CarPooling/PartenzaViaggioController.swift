@@ -15,8 +15,8 @@ class PartenzaViaggioController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var partenzaLuoghi = ["Napoli", "Roma", "Bologna", "Milano"]
-    var partenzaFoto = [UIImage(named: "Napoli"), UIImage(named: "Roma"), UIImage(named: "Bologna"), UIImage(named: "Milano")]
+    var partenzaLuoghi = ["Napoli", "Roma", "Bologna", "Milano","Torino","Firenze","Cosenza","Livorno","Bari","Genova","Trento"]
+    var partenzaFoto = [#imageLiteral(resourceName: "Napoli2"),#imageLiteral(resourceName: "Roma2"),#imageLiteral(resourceName: "Bologna2"),#imageLiteral(resourceName: "Milano2")]
     var indicePartenza: Int = 0
     var nomeDaPassare: String!
     

@@ -10,9 +10,20 @@ import Foundation
 import MapKit
 
 let POISAziendali : [Place] = [
-    Place(address: "Via Marcora 52", location: MILANO, locationName: "Sede Milano"),
+    Place(address: "Via Marcora 52", location: BARI, locationName: "Sede Bari"),
     Place(address: "Trav. Strettola S.Anna alle Paludi 11", location: NAPOLI, locationName: "Sede Napoli"),
-    Place(address: "Piazza Garibaldi  14", location: CLLocationCoordinate2D(latitude:40.838443, longitude:8.402086), locationName: "Sede Sassari")
+    Place(address: "Piazza Garibaldi  14", location: TORINO, locationName: "Sede Torino"),
+    
+    Place(address: "Via Marcora 52", location: LIVORNO, locationName: "Sede Livorno"),
+    Place(address: "Piazza Garibaldi  14", location: ROMA, locationName: "Sede Roma"),
+    
+    Place(address: "Via Marcora 52", location: FIRENZE, locationName: "Sede Firenze"),
+    Place(address: "Piazza Garibaldi  14", location: GENOVA, locationName: "Sede Genova"),
+
+    Place(address: "Piazza Garibaldi  14", location: COSENZA, locationName: "Sede Cosenza"),
+    Place(address: "Trav. Strettola S.Anna alle Paludi 11", location: TRENTO, locationName: "Sede Trento"),
+    Place(address: "Piazza Garibaldi  14", location: BOLOGNA, locationName: "Sede Bologna"),
+     Place(address: "Piazza Garibaldi  14", location: MILANO, locationName: "Sede Milano")
 ]
 
 let USERS : [User] = [
