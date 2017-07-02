@@ -54,7 +54,7 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        performSegue(withIdentifier: "riepilogoSegue", sender: nil)
         
     }
     

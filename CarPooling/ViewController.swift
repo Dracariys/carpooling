@@ -20,6 +20,19 @@ var TRAVEL : [CLLocationCoordinate2D] = [
     }
 }
 
+func calculateEfficiency() -> (Int,Double){
+    var carEff = 0.5
+    var effectiveKm = 0
+    for km in Distances {
+        effectiveKm+=km
+    }
+    var clearKm = effectiveKm
+    for user in acceptedUsers{
+        clearKm -= user.1/2
+    }
+    return (effectiveKm,Double(clearKm)/Double(effectiveKm))
+}
+
 var BARI = CLLocationCoordinate2D(latitude: 41.123683, longitude: 16.868231)
 var NAPOLI = CLLocationCoordinate2D(latitude: 40.872206, longitude: 14.282761)
 var TORINO = CLLocationCoordinate2D(latitude: 45.028762, longitude: 7.619877)
@@ -55,7 +68,17 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
-        if(true){
+        var ut : [String] = []
+        for user in USERS {
+            ut.append(user.name)
+        }
+        for accepted in acceptedUsers {
+            ut = ut.filter({$0 != accepted.0})
+        }
+        for rejected in rejectedUsers {
+            ut = ut.filter({$0 != rejected})
+        }
+        if(ut.contains(message)){
         let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 20km(30:00), ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
         var rect = CGSize(width: 50, height: 50)
         UIGraphicsBeginImageContext(rect)
@@ -108,26 +131,37 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             self.getDirections(start: START, arrival: DESTINATION)
             return
         }
+        var userCount = 0
         self.getDirections(start: START , arrival: TRAVEL[0])
         if TRAVEL.count > 1 {
             for k in 0..<TRAVEL.count-1 {
                 self.getDirections(start: TRAVEL[k] , arrival: TRAVEL[k+1])
-                let point = PlaceAnnotation(location: TRAVEL[k], title: "\(k)", subtitle: "paologay")
+                let point = PlaceAnnotation(location: TRAVEL[k], title: "\(k)", subtitle: "nil")
                 if DROPLOCATION.contains(where: {$0 == TRAVEL[k]}) {
                     point.type = 1
-                } else {point.type = -1}
+                } else {
+                    point.subtitle = acceptedUsers[userCount].0
+                    userCount+=1
+                    point.type = -1
+                }
                 mapView.addAnnotation(point)
             }
         }
         self.getDirections(start: TRAVEL[TRAVEL.count-1] , arrival: DESTINATION)
-        let point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "cftvgybh")
+        let point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1], title: "end", subtitle: "nil")
         if DROPLOCATION.contains(where: {$0 == TRAVEL[TRAVEL.count-1]}) {
             point.type = 1
-        } else {point.type = -1}
+        } else {
+            point.subtitle = acceptedUsers[userCount].0
+            userCount+=1
+            point.type = -1
+        }
         mapView.addAnnotation(point)
     }
     
     override func viewDidLoad() {
+        Distances = []
+        acceptedUsers.append(("Dave S. Avel",200000))
         messageService.delegate=self
         super.viewDidLoad()
         mapView.delegate=self
@@ -214,24 +248,11 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             mapView.addAnnotation(veicles[k].1)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            print(self.calculateEfficiency())
+            print(calculateEfficiency())
             messageService.sendToAll(message: currentUser)
             //newuser
             self.refreshCar()
         }
-    }
-//
-    func calculateEfficiency() -> (Int,Double){
-        var carEff = 0.5
-        var effectiveKm = 0
-        for km in Distances {
-            effectiveKm+=km
-        }
-        var clearKm = effectiveKm
-        for user in acceptedUsers{
-            clearKm -= user.1/2
-        }
-        return (effectiveKm,Double(clearKm)/Double(effectiveKm))
     }
     
     func getDirections(start : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D) {
@@ -354,7 +375,7 @@ extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         pin.canShowCallout=true
-        var rect = CGSize(width: 40, height: 40)
+        var rect = CGSize(width: 50, height: 50)
         var img = #imageLiteral(resourceName: "pinfinalebianco")
         if let place = annotation as? PlaceAnnotation {
             switch place.type {
@@ -362,11 +383,11 @@ extension ViewController: MKMapViewDelegate {
                 img = #imageLiteral(resourceName: "Roma")
                 rect = CGSize(width: 40, height: 40)
             case -1: // Dipendente
-                let dipendente = place.image ?? #imageLiteral(resourceName: "paolo")
-                img = dipendente
-                rect = CGSize(width: 40, height: 40)
+                let dipendente = UIImage(named: (USERS.filter({$0.name == place.subtitle}).first?.id)!)
+                img = dipendente!
+                rect = CGSize(width: 50, height: 50)
             case 1: // drop
-                img = #imageLiteral(resourceName: "Page 1-1")
+                img = #imageLiteral(resourceName: "pinfermata")
                 rect = CGSize(width: 40, height: 40)
             default: // Posti disponibili
                 print("NOT RECOGNIZED")
@@ -382,7 +403,7 @@ extension ViewController: MKMapViewDelegate {
             }
             else {
                 img = #imageLiteral(resourceName: "pinrossosuperfinale")
-                rect = CGSize(width: 40, height: 40)
+                rect = CGSize(width: 35, height: 35)
             }
         } else {print("NOT RECOGNIZED")}
         UIGraphicsBeginImageContext(rect)

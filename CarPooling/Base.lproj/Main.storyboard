@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -635,7 +635,7 @@
         <!--View Controller-->
         <scene sceneID="Vhl-Fy-vCR">
             <objects>
-                <viewController id="6VG-7Z-ibG" sceneMemberID="viewController">
+                <viewController id="6VG-7Z-ibG" customClass="ViewController" customModule="CarPooling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MFz-fG-mwW"/>
                         <viewControllerLayoutGuide type="bottom" id="MPd-wd-gty"/>
@@ -645,6 +645,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ORt-OM-t9m" id="4G8-er-qVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CbY-6K-yte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1293,7 +1296,7 @@
         <image name="trophy" width="66" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wly-rg-1hm"/>
+        <segue reference="KaO-rS-43S"/>
         <segue reference="cf1-2F-n06"/>
         <segue reference="WUm-Sy-juS"/>
         <segue reference="JwS-8y-oQC"/>
