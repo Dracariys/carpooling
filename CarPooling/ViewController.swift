@@ -28,10 +28,13 @@ var LIVORNO = CLLocationCoordinate2D(latitude: 43.633870, longitude: 10.501126)
 
 let currentUser = USERS[Int(arc4random()) % USERS.count].name
 var rejectedUsers : [String] = []
+var acceptedUsers : [(String,Int)] = []
 
 var START : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788)
 var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.926094, longitude: 12.302646)
 var DROPLOCATION : [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345)]
+
+var Distances : [Int] = []
 
 let messageService = MessageServiceManager(serviceName: "ShareSeat")
 // up
@@ -52,15 +55,20 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
-        if(rejectedUsers.contains(where: {$0 != message})){
-        let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 30:00 minuti, ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
+        if(true){
+        let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 20km(30:00), ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
         var rect = CGSize(width: 50, height: 50)
         UIGraphicsBeginImageContext(rect)
         let vista = (UIImageView(frame: CGRect(x: 10, y: 10, width: 50, height: 50)))
         vista.image = USERS.filter({$0.name == message}).first?.image
         alert.view.addSubview(vista)
-        let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in self.newPlace()})
-        let action2 = UIAlertAction(title: "No!", style: .cancel, handler: {_ in rejectedUsers.append(message)})
+        let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in
+            acceptedUsers.append((message,100000))
+            self.newPlace()
+        })
+        let action2 = UIAlertAction(title: "No!", style: .cancel, handler: {_ in
+            rejectedUsers.append(message)
+        })
         alert.addAction(action)
         alert.addAction(action2)
         self.present(alert, animated: true)
@@ -68,6 +76,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func newPlace(){
+        Distances = []
         mapView.removeOverlays(mapView.overlays)
         let loc = CLLocationCoordinate2D(latitude: 44.786133, longitude: 11.225345)
         TRAVEL.append(loc)
@@ -205,12 +214,25 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             mapView.addAnnotation(veicles[k].1)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            print(self.calculateEfficiency())
             messageService.sendToAll(message: currentUser)
             //newuser
             self.refreshCar()
         }
     }
 
+    func calculateEfficiency() -> (Int,Double){
+        var carEff = 0.5
+        var effectiveKm = 0
+        for km in Distances {
+            effectiveKm+=km
+        }
+        var clearKm = effectiveKm
+        for user in acceptedUsers{
+            clearKm -= user.1/2
+        }
+        return (effectiveKm,Double(clearKm)/Double(effectiveKm))
+    }
     
     func getDirections(start : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D) {
         let request = MKDirectionsRequest()
@@ -240,6 +262,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     func showRoute(_ response: MKDirectionsResponse) -> [CLLocationCoordinate2D] {
         var rou : [CLLocationCoordinate2D] = []
         for route in response.routes {
+            Distances.append(Int(route.distance))
             for step in route.steps {
                 rou.append(step.polyline.coordinate)
             }
