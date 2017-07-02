@@ -62,19 +62,19 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
    
     @IBAction func showAlert(_ sender: Any) {
         let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo \(calculateEfficiency().0/1600) Minuti\nCo2 evitato : \(250-(calculateEfficiency().1*100).truncate(places: 2)) (mg/km) \nRisparmio : \(100-(calculateEfficiency().1*100).truncate(places: 2))%", preferredStyle: .alert)
-        let vista = (UIImageView(frame: CGRect(x: 40, y: 50, width: 20, height: 20)))
+        let vista = (UIImageView(frame: CGRect(x: 30, y: 40, width: 16, height: 16)))
         vista.image = #imageLiteral(resourceName: "orologio")
-        vista.layer.cornerRadius = 10
+        vista.layer.cornerRadius = 8
         vista.clipsToBounds=true
         alertController.view.addSubview(vista)
-        let vista2 = (UIImageView(frame: CGRect(x: 40, y: 60, width: 20, height: 20)))
+        let vista2 = (UIImageView(frame: CGRect(x: 30, y: 58, width: 16, height: 16)))
         vista2.image = #imageLiteral(resourceName: "NuvolaCO2")
-        vista2.layer.cornerRadius = 10
+        vista2.layer.cornerRadius = 8
         vista2.clipsToBounds=true
         alertController.view.addSubview(vista2)
-        let vista3 = (UIImageView(frame: CGRect(x: 40, y: 80, width: 20, height: 20)))
+        let vista3 = (UIImageView(frame: CGRect(x: 30, y: 75, width: 16, height: 16)))
         vista3.image = #imageLiteral(resourceName: "passeggero-1")
-        vista3.layer.cornerRadius = 10
+        vista3.layer.cornerRadius = 8
         vista3.clipsToBounds=true
         alertController.view.addSubview(vista3)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in self.performSegue(withIdentifier: "giveARank", sender: self)})
