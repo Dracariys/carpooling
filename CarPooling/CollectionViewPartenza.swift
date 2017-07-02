@@ -56,9 +56,7 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
             
             destination.indicePartenza = indicePartenza
             
-            partenza = nomeDaPassare
 
-            print(partenza)
             
             
             }
@@ -68,6 +66,8 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        partenza = nomeDaPassare
+
         indicePartenza = indexPath.row
         performSegue(withIdentifier: "partenzaToArrivoSegue", sender: nil)
         partenza = self.partenzaLuoghi[indexPath.row]
