@@ -246,7 +246,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             print(calculateEfficiency())
-            self.askRide(partenza, arrivo)
+            //askRide(partenza, arrivo)
             self.refreshCar()
         }
     }
