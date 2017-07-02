@@ -113,12 +113,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
     }
     
-    func askRide(_ part : String,_ arrival : String){
-        var par = String(LIVORNO.latitude) + "_" + String(LIVORNO.longitude)
-        var arr = String(TORINO.latitude) + "_" + String(TORINO.longitude)
-        messageService.sendToAll(message: currentUser + "_" + par + "_" + arr)
-    }
-    
     func travelMaking(handler: @escaping () -> Void){
         getCompletePath(START,DESTINATION,TRAVEL) { diction, error in
             if let dic = diction {
@@ -252,7 +246,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             print(calculateEfficiency())
-            self.askRide("", "")
+            //askRide(partenza, arrivo)
             self.refreshCar()
         }
     }
@@ -458,6 +452,54 @@ func calculateEfficiency() -> (Int,Double){
         clearKm -= user.1/2
     }
     return (effectiveKm,Double(clearKm)/Double(effectiveKm))
+}
+
+func askRide(_ part : String,_ arrival : String){
+    var par = String(LIVORNO.latitude) + "_" + String(LIVORNO.longitude)
+    var arr = String(TORINO.latitude) + "_" + String(TORINO.longitude)
+    if(part == "Bari"){
+        par = String(BARI.latitude) + "_" + String(BARI.longitude)
+    }else if part == "Napoli" {
+        par = String(NAPOLI.latitude) + "_" + String(NAPOLI.longitude)
+    }else if part == "Torino" {
+        par = String(TORINO.latitude) + "_" + String(TORINO.longitude)
+    }else if part == "Livorno" {
+        par = String(LIVORNO.latitude) + "_" + String(LIVORNO.longitude)
+    }else if part == "Roma" {
+        par = String(ROMA.latitude) + "_" + String(ROMA.longitude)
+    }else if part == "Genova" {
+        par = String(GENOVA.latitude) + "_" + String(GENOVA.longitude)
+    }else if part == "Firenze" {
+        par = String(FIRENZE.latitude) + "_" + String(FIRENZE.longitude)
+    }else if part == "Cosenza" {
+        par = String(COSENZA.latitude) + "_" + String(COSENZA.longitude)
+    }else if part == "Milano" {
+        par = String(MILANO.latitude) + "_" + String(MILANO.longitude)
+    }else if part == "Trento" {
+        par = String(TRENTO.latitude) + "_" + String(TRENTO.longitude)
+    }
+    if(arr == "Bari"){
+        arr = String(BARI.latitude) + "_" + String(BARI.longitude)
+    }else if arr == "Napoli" {
+        arr = String(NAPOLI.latitude) + "_" + String(NAPOLI.longitude)
+    }else if arr == "Torino" {
+        arr = String(TORINO.latitude) + "_" + String(TORINO.longitude)
+    }else if arr == "Livorno" {
+        arr = String(LIVORNO.latitude) + "_" + String(LIVORNO.longitude)
+    }else if arr == "Roma" {
+        arr = String(ROMA.latitude) + "_" + String(ROMA.longitude)
+    }else if arr == "Genova" {
+        arr = String(GENOVA.latitude) + "_" + String(GENOVA.longitude)
+    }else if arr == "Firenze" {
+        arr = String(FIRENZE.latitude) + "_" + String(FIRENZE.longitude)
+    }else if arr == "Cosenza" {
+        arr = String(COSENZA.latitude) + "_" + String(COSENZA.longitude)
+    }else if arr == "Milano" {
+        arr = String(MILANO.latitude) + "_" + String(MILANO.longitude)
+    }else if arr == "Trento" {
+        arr = String(TRENTO.latitude) + "_" + String(TRENTO.longitude)
+    }
+    messageService.sendToAll(message: currentUser + "_" + par + "_" + arr)
 }
 
 

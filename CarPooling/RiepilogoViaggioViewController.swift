@@ -20,7 +20,8 @@ class RiepilogoViaggioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        askRide(partenza, arrivo)
+        print(partenza,arrivo)
         if seiPasseggero == true {
             
             askPasseggero.isEnabled = false
