@@ -6,6 +6,9 @@
 //  Copyright © 2017 Andrea Tofano. All rights reserved.
 //
 
+var partenza = ""
+var arrivo = ""
+
 import UIKit
 
 class PartenzaViaggioController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
@@ -15,6 +18,7 @@ class PartenzaViaggioController: UIViewController, UICollectionViewDelegate, UIC
     var partenzaLuoghi = ["Napoli", "Roma", "Bologna", "Milano"]
     var partenzaFoto = [UIImage(named: "Napoli"), UIImage(named: "Roma"), UIImage(named: "Bologna"), UIImage(named: "Milano")]
     var indicePartenza: Int = 0
+    var nomeDaPassare: String!
     
     
     override func viewDidLoad() {
@@ -35,7 +39,7 @@ class PartenzaViaggioController: UIViewController, UICollectionViewDelegate, UIC
         //impostiamo l'immagine e il testo della label con quelli precedentemente dichiarati nelle due variabili
         cell.partenzaImage?.image = self.partenzaFoto[indexPath.row]
         cell.partenzaLabel?.text = partenzaLuoghi[indexPath.row]
-        
+        nomeDaPassare = cell.partenzaLabel.text
         return cell
     }
     
@@ -51,7 +55,8 @@ class PartenzaViaggioController: UIViewController, UICollectionViewDelegate, UIC
             destination.indicePartenza = indicePartenza
             
             
-            
+        partenza = nomeDaPassare
+            print(partenza)
             
             
         }

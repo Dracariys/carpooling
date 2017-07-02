@@ -18,7 +18,8 @@ class CollectionViewArrivo: UIViewController, UICollectionViewDataSource, UIColl
     var arrivoFoto = [UIImage(named: "Napoli"), UIImage(named: "Roma"), UIImage(named: "Bologna"), UIImage(named: "Milano")]
     
     var indicePartenza: Int = 0
-    
+    var nomeDaPassare: String!
+
     
     
     override func viewDidLoad() {
@@ -38,6 +39,7 @@ class CollectionViewArrivo: UIViewController, UICollectionViewDataSource, UIColl
         //impostiamo l'immagine e il testo della label con quelli precedentemente dichiarati nelle due variabili
         cell.arrivoImage?.image = self.arrivoFoto[indexPath.row]
         cell.arrivoLabel?.text = self.arrivoLuoghi[indexPath.row]
+        nomeDaPassare = cell.arrivoLabel.text
         
         return cell
         
@@ -47,7 +49,9 @@ class CollectionViewArrivo: UIViewController, UICollectionViewDataSource, UIColl
         
         performSegue(withIdentifier: "driversListSegue", sender: nil)
 
-        
+        arrivo = nomeDaPassare
+
+        print(arrivo)
     }
     
     
@@ -55,3 +59,4 @@ class CollectionViewArrivo: UIViewController, UICollectionViewDataSource, UIColl
     
     
 }
+

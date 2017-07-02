@@ -19,7 +19,8 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
     var partenzaLuoghi = ["Napoli", "Roma", "Bologna", "Milano"]
     var partenzaFoto = [UIImage(named: "Napoli"), UIImage(named: "Roma"), UIImage(named: "Bologna"), UIImage(named: "Milano")]
     var indicePartenza: Int = 0
-    
+    var nomeDaPassare: String!
+
     
     override func viewDidLoad() {
         
@@ -39,7 +40,8 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
         //impostiamo l'immagine e il testo della label con quelli precedentemente dichiarati nelle due variabili
         cell.partenzaImage?.image = self.partenzaFoto[indexPath.row]
         cell.partenzaLabel?.text = partenzaLuoghi[indexPath.row]
-        
+        nomeDaPassare = cell.partenzaLabel.text
+
         return cell
     }
     
@@ -54,8 +56,9 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
             
             destination.indicePartenza = indicePartenza
             
-            
-                
+            partenza = nomeDaPassare
+
+            print(partenza)
             
             
             }
