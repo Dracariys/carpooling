@@ -16,8 +16,8 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var partenzaLuoghi = ["Napoli", "Roma", "Bologna", "Milano"]
-    var partenzaFoto = [UIImage(named: "Napoli"), UIImage(named: "Roma"), UIImage(named: "Bologna"), UIImage(named: "Milano")]
+    var partenzaLuoghi = ["Napoli", "Roma", "Bologna", "Milano","Torino","Firenze","Cosenza","Livorno","Bari","Genova","Trento"]
+    var partenzaFoto = [#imageLiteral(resourceName: "Napoli2"),#imageLiteral(resourceName: "Roma2"),#imageLiteral(resourceName: "Bologna2"),#imageLiteral(resourceName: "Milano2"),#imageLiteral(resourceName: "Torino2"),#imageLiteral(resourceName: "Firenze2"),#imageLiteral(resourceName: "Cosenza2"),#imageLiteral(resourceName: "LIvorno2"),#imageLiteral(resourceName: "Bari2"),#imageLiteral(resourceName: "Genova2"),#imageLiteral(resourceName: "Trento2")]
     var indicePartenza: Int = 0
     var nomeDaPassare: String!
 
@@ -30,7 +30,7 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         //questo valore serve per far capire alla Collection View quante celle devono essere visualizzate
-        return partenzaLuoghi.count
+        return POISAziendali.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,7 +38,7 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cella", for: indexPath as IndexPath) as! PartenzaCell
         
         //impostiamo l'immagine e il testo della label con quelli precedentemente dichiarati nelle due variabili
-        cell.partenzaImage?.image = self.partenzaFoto[indexPath.row]
+        cell.partenzaImage?.image = partenzaFoto[indexPath.row]
         cell.partenzaLabel?.text = partenzaLuoghi[indexPath.row]
         nomeDaPassare = cell.partenzaLabel.text
 
