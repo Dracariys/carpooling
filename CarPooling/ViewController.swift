@@ -257,6 +257,9 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     
+    
+    
+    
     func generateVeicle(_ n : Int){
         CARS[0].route=array1.reversed()
         CARS[1].route=array1
