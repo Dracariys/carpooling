@@ -135,13 +135,18 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         for elem in TRAVEL {
             travels.append(elem.0)
         }
+        travels.append(START)
+        travels.append(DESTINATION)
         mapView.removeOverlays(mapView.overlays)
-        if(part != START && part != DESTINATION && travels.contains(where: {$0 != part})){
+
+        if(travels.filter({$0 == part}).count == 0){
+            print(travels.filter({$0 == part}).count)
             TRAVEL.append((part,"USER "+user))
-        }
-        if(arr != START && arr != DESTINATION && travels.contains(where: {$0 != arr})){
+        } else {print("già presente")}
+        if(travels.filter({$0 == arr}).count == 0){
+            print(travels.filter({$0 == arr}).count)
             TRAVEL.append((arr,"DROP "+user))
-        }
+        }else {print("già presente")}
         travelMaking {
         }
     }
@@ -349,7 +354,7 @@ func routeUrlCreate(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationC
     var basicUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&key=AIzaSyAGjTDcNLXG5OVuluxG3MvSNiMbDJMUlns"
     if waypoints.count != 0 {
         basicUrl =
-        "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&waypoints=optimize:false"
+        "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&waypoints=optimize:true"
         for wp in waypoints {
             basicUrl.append("|\(wp.0.latitude),\(wp.0.longitude)")
         }
