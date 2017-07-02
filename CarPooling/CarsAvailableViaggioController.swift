@@ -73,6 +73,10 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
         
     }
     
+    
+ 
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "riepilogoSegue", sender: nil)
     }
