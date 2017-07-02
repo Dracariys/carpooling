@@ -220,7 +220,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             self.refreshCar()
         }
     }
-
+//
     func calculateEfficiency() -> (Int,Double){
         var carEff = 0.5
         var effectiveKm = 0
