@@ -32,13 +32,13 @@ var BOLOGNA = CLLocationCoordinate2D(latitude: 44.500992 , longitude: 11.353307)
 
 
 
-let currentUser = USERS[Int(arc4random()) % USERS.count].name
+let currentUser = USERS[Int(arc4random()) % (USERS.count-1)].name
 var rejectedUsers : [String] = []
 var acceptedUsers : [(String,Int)] = []
 var distanceNewPercorso = 200000 + Int(arc4random()) % 150000
 
 var START : CLLocationCoordinate2D = NAPOLI
-var DESTINATION : CLLocationCoordinate2D = BOLOGNA
+var DESTINATION : CLLocationCoordinate2D = TORINO
 var Distances : [Int] = []
 
 let messageService = MessageServiceManager(serviceName: "ShareSeat")
