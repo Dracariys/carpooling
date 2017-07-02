@@ -45,17 +45,19 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
+        let arrayOfCars = CARS.sorted { $0.efficiency > $1.efficiency }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell") as! DriverDetailsCell
         
         cell.driverName.text = "Autista: " + USERS[indexPath.row].name
         cell.carImage.layer.cornerRadius = cell.carImage.frame.size.width / 2
         cell.carImage.layer.masksToBounds = true
-        cell.carImage.image = CARS[indexPath.row].image
-        cell.carName.text = "Auto: " + CARS[indexPath.row].name
+        cell.carImage.image = arrayOfCars[indexPath.row].image
+        cell.carName.text = "Auto: " + arrayOfCars[indexPath.row].name
         cell.idLabel.text = "ID: " + USERS[indexPath.row].id
         cell.distanceLabel.text = "Distanza: " + String(arc4random_uniform(UInt32(200.d))) + " km"
         
-        switch CARS[indexPath.row].efficiency {
+        switch arrayOfCars[indexPath.row].efficiency {
         case 1:
             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta1")
         case 2:

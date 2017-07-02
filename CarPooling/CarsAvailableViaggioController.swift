@@ -15,6 +15,8 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
 
+       
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,15 +34,18 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        let arrayOfCars = CARS.sorted { $0.efficiency > $1.efficiency }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "carCell") as! CarsAvailableCell
         
-        cell.autoName.text = CARS[indexPath.row].name
-        cell.carImage.image = CARS[indexPath.row].image
-        cell.consumi.text = "Risparmio energetico: " + String(arc4random_uniform(UInt32(150))) + "%"
+        cell.autoName.text = arrayOfCars[indexPath.row].name
+        cell.carImage.image = arrayOfCars[indexPath.row].image
+        cell.consumi.text = "Risparmio evargetico: " + String(arc4random_uniform(UInt32(150))) + "%"
         
         
         
-        switch CARS[indexPath.row].efficiency {
+        switch arrayOfCars[indexPath.row].efficiency {
             
         case 1:
             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta1")
