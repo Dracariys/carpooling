@@ -23,6 +23,7 @@ class RiepilogoViaggioViewController: UIViewController, MessageServiceManagerDel
     
     func messageReceived(manager: MessageServiceManager, message: String) {
         let opCodes = message.components(separatedBy: "_")
+        print(opCodes)
         let part = CLLocationCoordinate2D(latitude: Double(opCodes[1])!, longitude: Double(opCodes[2])!)
         let arr = CLLocationCoordinate2D(latitude: Double(opCodes[3])!, longitude: Double(opCodes[4])!)
         if(opCodes[0] == "MAP"){

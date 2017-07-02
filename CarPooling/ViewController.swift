@@ -126,7 +126,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         for p in TRAVEL{
             points.append("_\(p.0.latitude)_\(p.0.longitude)")
         }
-        messageService.sendToAll(message: "MAP_\(par)_\(arrival)_\(points)")
+        messageService.sendToAll(message: "MAP_\(par)_\(arrival)\(points)")
     }
     
     func newPlace(_ part : CLLocationCoordinate2D,_ arr : CLLocationCoordinate2D,_ user : String){
@@ -174,7 +174,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         if TRAVEL.count > 1 {
             for k in 0..<TRAVEL.count-1 {
                 self.getDirectionsAndDraw(start: TRAVEL[k].0 , arrival: TRAVEL[k+1].0)
-                var point = PlaceAnnotation(location: TRAVEL[k].0, title: "\(k)", subtitle: TRAVEL[k].1)
+                var point = PlaceAnnotation(location: TRAVEL[k].0, title: "Waypoint", subtitle: TRAVEL[k].1)
                 if TRAVEL[k].1.contains("DROP") {
                     point = PlaceAnnotation(location: TRAVEL[k].0, title: "Arrivo Passeggero", subtitle: TRAVEL[k].1.replacingOccurrences(of: "DROP", with: ""))
                     point.type = 1
@@ -510,27 +510,28 @@ func askRide(_ part : String,_ arrival : String){
     }else if part == "Trento" {
         par = String(TRENTO.latitude) + "_" + String(TRENTO.longitude)
     }
-    if(arr == "Bari"){
+    if(arrival == "Bari"){
         arr = String(BARI.latitude) + "_" + String(BARI.longitude)
-    }else if arr == "Napoli" {
+    }else if arrival == "Napoli" {
         arr = String(NAPOLI.latitude) + "_" + String(NAPOLI.longitude)
-    }else if arr == "Torino" {
+    }else if arrival == "Torino" {
         arr = String(TORINO.latitude) + "_" + String(TORINO.longitude)
-    }else if arr == "Livorno" {
+    }else if arrival == "Livorno" {
         arr = String(LIVORNO.latitude) + "_" + String(LIVORNO.longitude)
-    }else if arr == "Roma" {
+    }else if arrival == "Roma" {
         arr = String(ROMA.latitude) + "_" + String(ROMA.longitude)
-    }else if arr == "Genova" {
+    }else if arrival == "Genova" {
         arr = String(GENOVA.latitude) + "_" + String(GENOVA.longitude)
-    }else if arr == "Firenze" {
+    }else if arrival == "Firenze" {
         arr = String(FIRENZE.latitude) + "_" + String(FIRENZE.longitude)
-    }else if arr == "Cosenza" {
+    }else if arrival == "Cosenza" {
         arr = String(COSENZA.latitude) + "_" + String(COSENZA.longitude)
-    }else if arr == "Milano" {
+    }else if arrival == "Milano" {
         arr = String(MILANO.latitude) + "_" + String(MILANO.longitude)
-    }else if arr == "Trento" {
+    }else if arrival == "Trento" {
         arr = String(TRENTO.latitude) + "_" + String(TRENTO.longitude)
     }
+    print(par,arr)
     messageService.sendToAll(message: currentUser + "_" + par + "_" + arr)
 }
 
