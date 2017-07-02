@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RiepilogoViaggioViewController: UIViewController {
+class RiepilogoViaggioViewController: UIViewController, MessageServiceManagerDelegate {
 
     
     var seiPasseggero: Bool?
@@ -16,10 +16,17 @@ class RiepilogoViaggioViewController: UIViewController {
     @IBOutlet weak var askPasseggero: UIButton!
     @IBOutlet weak var confermaButton: UIButton!
    
+    func connectedDevicesChanged(manager: MessageServiceManager, connectedDevices: [String]) {
+        
+    }
     
+    func messageReceived(manager: MessageServiceManager, message: String) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        messageService.delegate=self
         askRide(partenza, arrivo)
         print(partenza,arrivo)
         if seiPasseggero == true {
