@@ -12,32 +12,10 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
     
     
     
-    var drivers: [User]?
-    var cars: [Car]?
-    
-    
-    
-    
     override func viewDidLoad() {
         
         
         super.viewDidLoad()
-        drivers = [
-            User(id: "0123456", name: "Gino D'Acampo", image: #imageLiteral(resourceName: "driver2")),
-            User(id: "0123477", name: "Richard Ayoade", image: #imageLiteral(resourceName: "driver3")),
-            User(id: "0123428", name: "Paul Patrick", image: #imageLiteral(resourceName: "paolo")),
-            User(id: "0123439", name: "Alex M. Routa", image: #imageLiteral(resourceName: "driver4")),
-            User(id: "0123490", name: "Dave S. Avel", image: #imageLiteral(resourceName: "driver5"))
-        ]
-        
-        cars = [
-            Car(name: "Alfa Romeo Giulietta", image: #imageLiteral(resourceName: "car1")),
-            Car(name: "Ford Foucs", image: #imageLiteral(resourceName: "car2") ),
-            Car(name: "Fiat Punto", image: #imageLiteral(resourceName: "car3") ),
-            Car(name: "Subaru Baracca", image: #imageLiteral(resourceName: "car4")),
-            Car(name: "Panzer", image: #imageLiteral(resourceName: "car5"))
-        ]
-        
         
         
         
@@ -60,7 +38,7 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return (drivers?.count)!
+        return USERS.count
         
     }
     
@@ -69,37 +47,37 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell") as! DriverDetailsCell
         
-        cell.driverName.text = drivers![indexPath.row].name
-        cell.carImage.image = cars![indexPath.row].image
-        cell.carName.text = cars![indexPath.row].name
-        cell.idLabel.text = "ID: " + drivers![indexPath.row].id
-        cell.distanceLabel.text = String(arc4random_uniform(UInt32(200.d))) + " km"
+        cell.driverName.text = "Autista: " + USERS[indexPath.row].name
+        cell.carImage.layer.cornerRadius = cell.carImage.frame.size.width / 2
+        cell.carImage.layer.masksToBounds = true
+        cell.carImage.image = CARS[indexPath.row].image
+        cell.carName.text = "Auto: " + CARS[indexPath.row].name
+        cell.idLabel.text = "ID: " + USERS[indexPath.row].id
+        cell.distanceLabel.text = "Distanza: " + String(arc4random_uniform(UInt32(200.d))) + " km"
         
-        switch cars![indexPath.row].efficiency {
-        case 0:
-            cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        switch CARS[indexPath.row].efficiency {
         case 1:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta1")
         case 2:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta2")
         case 3:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta3")
         case 4:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta4")
         case 5:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
-        case 6:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
-        case 7:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
-        case 8:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
-        case 9:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
-        case 10:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta5")
+//        case 6:
+//             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta6")
+//        case 7:
+//             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta7")
+//        case 8:
+//             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta8")
+//        case 9:
+//             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta9")
+//        case 10:
+//             cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta10")
         default:
-             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+             cell.livelloEcologico.image = UIImage()
         }
         
         return cell

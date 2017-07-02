@@ -10,14 +10,7 @@ import UIKit
 
 class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let cars = [
-        Car(name: "Toyota Corolla", image: #imageLiteral(resourceName: "car6")),
-        Car(name: "Citroen Picasso", image: #imageLiteral(resourceName: "car7") ),
-        Car(name: "Volkswagen Golf", image: #imageLiteral(resourceName: "car8") ),
-        Car(name: "Lotus Elise", image: #imageLiteral(resourceName: "car9")),
-        Car(name: "Jeep Wrangler", image: #imageLiteral(resourceName: "car10"))
-    ]
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +25,7 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-        return cars.count
+        return CARS.count
         
     }
     
@@ -41,9 +34,40 @@ class CarsAvailableViaggioController: UIViewController, UITableViewDelegate, UIT
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "carCell") as! CarsAvailableCell
         
-        cell.autoName.text = cars[indexPath.row].name
-        cell.carImage.image = cars[indexPath.row].image
+        cell.autoName.text = CARS[indexPath.row].name
+        cell.carImage.image = CARS[indexPath.row].image
         cell.consumi.text = "Risparmio energetico: " + String(arc4random_uniform(UInt32(150))) + "%"
+        
+        
+        
+        switch CARS[indexPath.row].efficiency {
+            
+        case 1:
+            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta1")
+        case 2:
+            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta2")
+        case 3:
+            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta3")
+        case 4:
+            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta4")
+        case 5:
+            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta5")
+//        case 6:
+//            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta6")
+//        case 7:
+//            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta7")
+//        case 8:
+//            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta8")
+//        case 9:
+//            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta9")
+//        case 10:
+//            cell.livelloEcologico.image = #imageLiteral(resourceName: "pianta10")
+        default:
+            cell.livelloEcologico.image = UIImage()
+        }
+        
+        
+        
         
         return cell
         

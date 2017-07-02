@@ -26,6 +26,13 @@ var BARI = CLLocationCoordinate2D(latitude: 41.123683, longitude: 16.868231)
 var NAPOLI = CLLocationCoordinate2D(latitude: 40.872206, longitude: 14.282761)
 var TORINO = CLLocationCoordinate2D(latitude: 45.028762, longitude: 7.619877)
 var LIVORNO = CLLocationCoordinate2D(latitude: 43.633870, longitude: 10.501126)
+var ROMA = CLLocationCoordinate2D(latitude: 41.9027835, longitude: 12.496365500000024)
+var GENOVA = CLLocationCoordinate2D(latitude: 44.4056499, longitude: 8.946255999999948)
+var FIRENZE = CLLocationCoordinate2D(latitude: 43.7695604, longitude: 11.25581360000001)
+var COSENZA = CLLocationCoordinate2D(latitude: 39.2982629 , longitude: 16.253735699999993)
+var MILANO = CLLocationCoordinate2D(latitude: 45.4654219 , longitude: 9.18592430000001)
+var TRENTO = CLLocationCoordinate2D(latitude: 46.0747793 , longitude: 11.121748600000046)
+
 
 
 let currentUser = USERS[Int(arc4random()) % USERS.count].name

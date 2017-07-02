@@ -14,6 +14,8 @@ class CarsAvailableCell: UITableViewCell {
     @IBOutlet weak var autoName: UILabel!
     @IBOutlet weak var pointOfInt: UILabel!
     @IBOutlet weak var consumi: UILabel!
+    @IBOutlet weak var livelloEcologico: UIImageView!
+    
     
     
     

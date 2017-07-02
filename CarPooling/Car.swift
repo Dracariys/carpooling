@@ -35,8 +35,27 @@ class Car {
     }
     var route : [CLLocationCoordinate2D] = []
     var routePlace : Int = 2
-    var efficiency = 1
+    var efficiency = 0
     
+    
+    func setEfficiency(){
+        
+        
+        while (efficiency == 0) {
+            
+            efficiency = Int(arc4random_uniform(UInt32(5)))
+            
+        }
+        
+        if name == "Panzer" || name == "Subaru Baracca" {
+            
+            efficiency = 1
+            
+        }
+        
+        
+        
+    }
     
     init(name: String){
         
@@ -49,6 +68,7 @@ class Car {
         risparmioPerChilometro = Double(arc4random_uniform(UInt32(1000)))
         risparmioGiornaliero = 0
         max_posti = 4
+        setEfficiency()
     }
     
     
@@ -64,6 +84,7 @@ class Car {
         risparmioPerChilometro = 0
         risparmioGiornaliero = 0
         max_posti = 4
+        setEfficiency()
     }
     
     init(name: String, image: UIImage, _ loc : CLLocationCoordinate2D){
@@ -78,6 +99,7 @@ class Car {
         risparmioPerChilometro = 0
         risparmioGiornaliero = 0
         max_posti = 4
+        setEfficiency()
     }
     
     
