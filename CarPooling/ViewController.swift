@@ -375,7 +375,7 @@ extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         pin.canShowCallout=true
-        var rect = CGSize(width: 40, height: 40)
+        var rect = CGSize(width: 50, height: 50)
         var img = #imageLiteral(resourceName: "pinfinalebianco")
         if let place = annotation as? PlaceAnnotation {
             switch place.type {
@@ -387,7 +387,7 @@ extension ViewController: MKMapViewDelegate {
                 img = dipendente!
                 rect = CGSize(width: 50, height: 50)
             case 1: // drop
-                img = #imageLiteral(resourceName: "Page 1-1")
+                img = #imageLiteral(resourceName: "pinfermata")
                 rect = CGSize(width: 40, height: 40)
             default: // Posti disponibili
                 print("NOT RECOGNIZED")
@@ -403,7 +403,7 @@ extension ViewController: MKMapViewDelegate {
             }
             else {
                 img = #imageLiteral(resourceName: "pinrossosuperfinale")
-                rect = CGSize(width: 40, height: 40)
+                rect = CGSize(width: 35, height: 35)
             }
         } else {print("NOT RECOGNIZED")}
         UIGraphicsBeginImageContext(rect)
