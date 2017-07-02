@@ -12,8 +12,8 @@ import CoreLocation
 //Master
 
 var TRAVEL : [(CLLocationCoordinate2D,String)] = [
-    (CLLocationCoordinate2D(latitude: 42.767863, longitude: 11.144630),"USER Gino D'Acampo")
-    ,(CLLocationCoordinate2D(latitude: 43.786133, longitude: 11.225345),"DROP Gino D'Acampo")
+    (ROMA,"USER Gino D'Acampo")
+    ,(FIRENZE,"DROP Gino D'Acampo")
     ]
 
 
@@ -28,6 +28,7 @@ var FIRENZE = CLLocationCoordinate2D(latitude: 43.7695604, longitude: 11.2558136
 var COSENZA = CLLocationCoordinate2D(latitude: 39.2982629 , longitude: 16.253735699999993)
 var MILANO = CLLocationCoordinate2D(latitude: 45.4654219 , longitude: 9.18592430000001)
 var TRENTO = CLLocationCoordinate2D(latitude: 46.0747793 , longitude: 11.121748600000046)
+var BOLOGNA = CLLocationCoordinate2D(latitude: 44.500992 , longitude: 11.353307)
 
 
 
@@ -36,8 +37,8 @@ var rejectedUsers : [String] = []
 var acceptedUsers : [(String,Int)] = []
 var distanceNewPercorso = 200000 + Int(arc4random()) % 150000
 
-var START : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788)
-var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.926094, longitude: 12.302646)
+var START : CLLocationCoordinate2D = NAPOLI
+var DESTINATION : CLLocationCoordinate2D = BOLOGNA
 var Distances : [Int] = []
 
 let messageService = MessageServiceManager(serviceName: "ShareSeat")
@@ -68,6 +69,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
     
     func messageReceived(manager: MessageServiceManager, message: String) {
+        print(message)
         let opCodes = message.components(separatedBy: "_")
         let part = CLLocationCoordinate2D(latitude: Double(opCodes[1])!, longitude: Double(opCodes[2])!)
         let arr = CLLocationCoordinate2D(latitude: Double(opCodes[3])!, longitude: Double(opCodes[4])!)
@@ -106,7 +108,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     func newPlace(_ part : CLLocationCoordinate2D,_ arr : CLLocationCoordinate2D,_ user : String){
         Distances = []
         mapView.removeOverlays(mapView.overlays)
-        let loc = CLLocationCoordinate2D(latitude: 44.786133, longitude: 11.225345)
         TRAVEL.append((part,"USER "+user))
         TRAVEL.append((arr,"DROP "+user))
         travelMaking {
@@ -317,7 +318,7 @@ func routeUrlCreate(_ departure : CLLocationCoordinate2D,_ arrival : CLLocationC
     var basicUrl = "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&key=AIzaSyAGjTDcNLXG5OVuluxG3MvSNiMbDJMUlns"
     if waypoints.count != 0 {
         basicUrl =
-        "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&waypoints=optimize:true"
+        "https://maps.googleapis.com/maps/api/directions/json?origin=\(departure.latitude),\(departure.longitude)&destination=\(arrival.latitude),\(arrival.longitude)&waypoints=optimize:false"
         for wp in waypoints {
             basicUrl.append("|\(wp.0.latitude),\(wp.0.longitude)")
         }
@@ -455,8 +456,8 @@ func calculateEfficiency() -> (Int,Double){
 }
 
 func askRide(_ part : String,_ arrival : String){
-    var par = String(LIVORNO.latitude) + "_" + String(LIVORNO.longitude)
-    var arr = String(TORINO.latitude) + "_" + String(TORINO.longitude)
+    var par = String(BOLOGNA.latitude) + "_" + String(BOLOGNA.longitude)
+    var arr = String(BOLOGNA.latitude) + "_" + String(BOLOGNA.longitude)
     if(part == "Bari"){
         par = String(BARI.latitude) + "_" + String(BARI.longitude)
     }else if part == "Napoli" {
