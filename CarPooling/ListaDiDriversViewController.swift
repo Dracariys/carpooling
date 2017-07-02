@@ -65,7 +65,7 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell") as! DriverDetailsCell
         
         cell.driverName.text = "Autista: " + USERS[indexPath.row].name
-        cell.carImage.layer.cornerRadius = cell.carImage.frame.size.width / 2
+        cell.carImage.layer.cornerRadius = cell.carImage.frame.size.width / 16
         cell.carImage.layer.masksToBounds = true
         cell.carImage.image = arrayOfCars[indexPath.row].image
         cell.carName.text = arrayOfCars[indexPath.row].name
