@@ -20,18 +20,7 @@ var TRAVEL : [CLLocationCoordinate2D] = [
     }
 }
 
-func calculateEfficiency() -> (Int,Double){
-    var carEff = 0.5
-    var effectiveKm = 0
-    for km in Distances {
-        effectiveKm+=km
-    }
-    var clearKm = effectiveKm
-    for user in acceptedUsers{
-        clearKm -= user.1/2
-    }
-    return (effectiveKm,Double(clearKm)/Double(effectiveKm))
-}
+
 
 var BARI = CLLocationCoordinate2D(latitude: 41.123683, longitude: 16.868231)
 var NAPOLI = CLLocationCoordinate2D(latitude: 40.872206, longitude: 14.282761)
@@ -218,13 +207,6 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         CARS[3].driver = USERS.first
         CARS[4].driver = USERS.first
         CARS[5].driver = USERS.first
-        
-        CARS[0].haPostiLiberi=false
-        CARS[1].haPostiLiberi=true
-        CARS[2].haPostiLiberi=false
-        CARS[3].haPostiLiberi=true
-        CARS[4].haPostiLiberi=false
-        CARS[5].haPostiLiberi=true
         for car in CARS {
             let annotation = CarAnnotation(car)
             mapView.addAnnotation(annotation)
@@ -428,6 +410,18 @@ func randomMove (_ pos : CLLocationCoordinate2D) -> CLLocationCoordinate2D {
     let rnd = (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ) - (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 )
     let rnd2 = (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 ) - (Double(arc4random()).truncatingRemainder(dividingBy: 10) / 100 )
     return CLLocationCoordinate2D(latitude: pos.latitude + rnd, longitude: pos.longitude + rnd2)
+}
+func calculateEfficiency() -> (Int,Double){
+    var carEff = 0.5
+    var effectiveKm = 0
+    for km in Distances {
+        effectiveKm+=km
+    }
+    var clearKm = effectiveKm
+    for user in acceptedUsers{
+        clearKm -= user.1/2
+    }
+    return (effectiveKm,Double(clearKm)/Double(effectiveKm))
 }
 
 

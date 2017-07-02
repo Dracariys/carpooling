@@ -24,9 +24,15 @@ class Car {
     var todayMileage: Double? //chilometri percorsi oggi. NOTA: comm cazz s calcola?
     var risparmioPerChilometro: Double?
     var risparmioGiornaliero: Double?
+    var destinazione : (String,CLLocationCoordinate2D)?
     var max_posti: Int
     var passeggeri: [User] = []
-    var haPostiLiberi = true
+    var haPostiLiberi : Bool {
+        if (passeggeri.count < max_posti) {
+            return true
+        }
+        return false
+    }
     var route : [CLLocationCoordinate2D] = []
     var routePlace : Int = 2
     var efficiency = 1
