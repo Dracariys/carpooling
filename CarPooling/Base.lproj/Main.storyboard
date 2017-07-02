@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -833,7 +833,6 @@
                                 </state>
                                 <connections>
                                     <action selector="showAlert:" destination="6VG-7Z-ibG" eventType="touchUpInside" id="YiF-Pv-fRO"/>
-                                    <segue destination="LW4-9m-p9x" kind="show" identifier="backToSignIn" id="CsP-vL-xFq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -841,6 +840,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="JGT-sV-6K7" id="UIM-A5-eOi"/>
+                        <segue destination="LW4-9m-p9x" kind="show" identifier="giveARank" id="Tf6-LZ-mUa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CbY-6K-yte" userLabel="First Responder" sceneMemberID="firstResponder"/>

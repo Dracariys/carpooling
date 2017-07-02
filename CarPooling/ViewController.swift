@@ -63,21 +63,21 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     @IBAction func showAlert(_ sender: Any) {
         let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo \(calculateEfficiency().0/1600) Minuti\nCo2 evitato : \(250-(calculateEfficiency().1*100).truncate(places: 2)) (mg/km) \nRisparmio : \(100-(calculateEfficiency().1*100).truncate(places: 2))%", preferredStyle: .alert)
         let vista = (UIImageView(frame: CGRect(x: 40, y: 50, width: 20, height: 20)))
-        vista.image = #imageLiteral(resourceName: "orologio3")
+        vista.image = #imageLiteral(resourceName: "orologio")
         vista.layer.cornerRadius = 10
         vista.clipsToBounds=true
         alertController.view.addSubview(vista)
-        let vista2 = (UIImageView(frame: CGRect(x: 40, y: 80, width: 20, height: 20)))
-        vista2.image = #imageLiteral(resourceName: "co2")
+        let vista2 = (UIImageView(frame: CGRect(x: 40, y: 60, width: 20, height: 20)))
+        vista2.image = #imageLiteral(resourceName: "NuvolaCO2")
         vista2.layer.cornerRadius = 10
         vista2.clipsToBounds=true
         alertController.view.addSubview(vista2)
-        let vista3 = (UIImageView(frame: CGRect(x: 40, y: 110, width: 20, height: 20)))
-        vista3.image = #imageLiteral(resourceName: "Passeggero")
+        let vista3 = (UIImageView(frame: CGRect(x: 40, y: 80, width: 20, height: 20)))
+        vista3.image = #imageLiteral(resourceName: "passeggero-1")
         vista3.layer.cornerRadius = 10
         vista3.clipsToBounds=true
         alertController.view.addSubview(vista3)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in self.performSegue(withIdentifier: "backToSignIn", sender: self)})
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in self.performSegue(withIdentifier: "giveARank", sender: self)})
         alertController.addAction(defaultAction)
         
         present(alertController, animated: true, completion: nil)
@@ -445,7 +445,8 @@ extension ViewController: MKMapViewDelegate {
             switch place.type {
             case 0: // Azienda
                 print(place.title!.replacingOccurrences(of: "Sede ", with: ""))
-                img = UIImage(named: place.title!.replacingOccurrences(of: "Sede ", with: ""))!
+                let imgtmp = UIImage(named: place.title!.replacingOccurrences(of: "Sede ", with: ""))
+                img = imgtmp ?? #imageLiteral(resourceName: "PinRifornimento")
                 rect = CGSize(width: 40, height: 40)
             case -1: // Dipendente
                 print(place.subtitle)
