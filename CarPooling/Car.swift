@@ -29,6 +29,7 @@ class Car {
     var haPostiLiberi = true
     var route : [CLLocationCoordinate2D] = []
     var routePlace : Int = 2
+    var efficiency = 1
     
     
     init(name: String){

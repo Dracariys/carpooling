@@ -289,39 +289,43 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoZ-c8-mog">
-                                                    <rect key="frame" x="8" y="15" width="150" height="150"/>
+                                                    <rect key="frame" x="8" y="32" width="120" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome e cognome" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2ay-7d-sWm">
-                                                    <rect key="frame" x="195" y="57" width="172" height="21"/>
+                                                    <rect key="frame" x="135" y="28" width="172" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distanza" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="U4a-b2-OMZ">
-                                                    <rect key="frame" x="192" y="115" width="175" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bdh-2f-KKs">
-                                                    <rect key="frame" x="192" y="144" width="175" height="21"/>
+                                                    <rect key="frame" x="137" y="78" width="175" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matricola" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HQI-9s-gME">
-                                                    <rect key="frame" x="195" y="86" width="172" height="21"/>
+                                                    <rect key="frame" x="139" y="50" width="172" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vwk-Pm-nRw">
-                                                    <rect key="frame" x="195" y="15" width="172" height="21"/>
+                                                    <rect key="frame" x="15" y="6" width="172" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Bu-e0-7k2">
+                                                    <rect key="frame" x="286" y="3" width="79" height="173"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bdh-2f-KKs">
+                                                    <rect key="frame" x="134" y="112" width="175" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -335,6 +339,7 @@
                                             <outlet property="distanceLabel" destination="U4a-b2-OMZ" id="DI4-3K-y8Z"/>
                                             <outlet property="driverName" destination="2ay-7d-sWm" id="ID4-5H-VwT"/>
                                             <outlet property="idLabel" destination="HQI-9s-gME" id="H1T-3e-f5M"/>
+                                            <outlet property="livelloEcologico" destination="4Bu-e0-7k2" id="66K-tT-Cls"/>
                                             <outlet property="rankLabel" destination="bdh-2f-KKs" id="8pv-yq-z8W"/>
                                         </connections>
                                     </tableViewCell>
@@ -353,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmX-e5-Kg3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6550" y="-340"/>
+            <point key="canvasLocation" x="6549.6000000000004" y="-340.47976011994007"/>
         </scene>
         <!--Riepilogo Viaggio View Controller-->
         <scene sceneID="sjW-O0-MQC">
@@ -1302,9 +1307,9 @@
         <image name="trophy" width="66" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KaO-rS-43S"/>
         <segue reference="cf1-2F-n06"/>
-        <segue reference="tYg-ua-DLg"/>
+        <segue reference="2o4-C9-g8o"/>
+        <segue reference="KaO-rS-43S"/>
         <segue reference="ojG-j3-ZXE"/>
         <segue reference="wly-rg-1hm"/>
     </inferredMetricsTieBreakers>

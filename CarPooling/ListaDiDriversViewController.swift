@@ -73,7 +73,34 @@ class ListaDiDriversViewController: UIViewController, UITableViewDelegate, UITab
         cell.carImage.image = cars![indexPath.row].image
         cell.carName.text = cars![indexPath.row].name
         cell.idLabel.text = "ID: " + drivers![indexPath.row].id
-        cell.distanceLabel.text = String(arc4random_uniform(UInt32(1000.d))) + " km"
+        cell.distanceLabel.text = String(arc4random_uniform(UInt32(200.d))) + " km"
+        
+        switch cars![indexPath.row].efficiency {
+        case 0:
+            cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 1:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 2:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 3:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 4:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 5:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 6:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 7:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 8:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 9:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        case 10:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        default:
+             cell.livelloEcologico.image = #imageLiteral(resourceName: "eco10")
+        }
         
         return cell
         

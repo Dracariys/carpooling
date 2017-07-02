@@ -16,6 +16,7 @@ class DriverDetailsCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var livelloEcologico: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
