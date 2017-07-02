@@ -60,7 +60,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     @IBAction func showAlert(_ sender: Any) {
         let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo 30 Minuti, Emissioni Co2 evitate : 202.0 (g/km)", preferredStyle: .alert)
         
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in self.performSegue(withIdentifier: "backToSignIn", sender: self)})
         alertController.addAction(defaultAction)
         
         present(alertController, animated: true, completion: nil)

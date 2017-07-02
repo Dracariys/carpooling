@@ -705,6 +705,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="JGT-sV-6K7" id="UIM-A5-eOi"/>
+                        <segue destination="J9j-Wz-CSg" kind="show" identifier="backToSignIn" id="MwI-S0-37B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CbY-6K-yte" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1389,12 +1390,12 @@
         <image name="trophy" width="66" height="78"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cf1-2F-n06"/>
         <segue reference="WUm-Sy-juS"/>
         <segue reference="JwS-8y-oQC"/>
-        <segue reference="vd8-eZ-jsk"/>
-        <segue reference="raY-48-xZj"/>
-        <segue reference="TZj-pk-wl3"/>
+        <segue reference="MwI-S0-37B"/>
         <segue reference="XOp-tl-ltU"/>
+        <segue reference="TZj-pk-wl3"/>
+        <segue reference="raY-48-xZj"/>
+        <segue reference="vd8-eZ-jsk"/>
     </inferredMetricsTieBreakers>
 </document>
