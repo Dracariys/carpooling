@@ -84,7 +84,20 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         for rejected in rejectedUsers {
             ut = ut.filter({$0 != rejected})
         }
-        if(ut.contains(opCodes[0])){
+        if(opCodes[0] == "MAP"){
+            if(opCodes.count>4){
+                START=part
+                DESTINATION=arr
+                for k in 5..<opCodes.count{
+                    if(k%2==1){
+                        TRAVEL.append((CLLocationCoordinate2D(latitude: Double(opCodes[k])!, longitude: Double(opCodes[k+1])!),"Waypoint"))
+                    }
+                }
+            }
+            travelMaking {
+            }
+        }
+        else if(ut.contains(opCodes[0])){
             let newLenght = distanceNewPercorso
             let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(opCodes[0]).Il viaggio si allungherà di \(newLenght/500)km, \(newLenght/850):00 minuti, ma acquisirai \(10 + newLenght/1000 % 100)pt", preferredStyle: UIAlertControllerStyle.actionSheet)
             var rect = CGSize(width: 50, height: 50)
@@ -95,6 +108,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in
                 acceptedUsers.append((opCodes[0],100000))
                 self.newPlace(part,arr,opCodes[0])
+                self.sendNewTravel()
             })
             let action2 = UIAlertAction(title: "No!", style: .cancel, handler: {_ in
                 rejectedUsers.append(opCodes[0])
@@ -105,11 +119,29 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
     }
     
+    func sendNewTravel(){
+        var par = String(START.latitude) + "_" + String(START.longitude)
+        var arrival = String(DESTINATION.latitude) + "_" + String(DESTINATION.longitude)
+        var points = ""
+        for p in TRAVEL{
+            points.append("_\(p.0.latitude)_\(p.0.longitude)")
+        }
+        messageService.sendToAll(message: "MAP_\(par)_\(arrival)_\(points)")
+    }
+    
     func newPlace(_ part : CLLocationCoordinate2D,_ arr : CLLocationCoordinate2D,_ user : String){
         Distances = []
+        var travels : [CLLocationCoordinate2D] = []
+        for elem in TRAVEL {
+            travels.append(elem.0)
+        }
         mapView.removeOverlays(mapView.overlays)
-        TRAVEL.append((part,"USER "+user))
-        TRAVEL.append((arr,"DROP "+user))
+        if(part != START && part != DESTINATION && travels.contains(where: {$0 != part})){
+            TRAVEL.append((part,"USER "+user))
+        }
+        if(arr != START && arr != DESTINATION && travels.contains(where: {$0 != arr})){
+            TRAVEL.append((arr,"DROP "+user))
+        }
         travelMaking {
         }
     }
