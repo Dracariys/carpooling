@@ -11,6 +11,7 @@
 		4410C6581F085633008C6280 /* RickDirectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410C6571F085633008C6280 /* RickDirectorCell.swift */; };
 		4410C65A1F0857E8008C6280 /* RickDirectoCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410C6591F0857E8008C6280 /* RickDirectoCell2.swift */; };
 		4410C65C1F08D4D8008C6280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4410C65B1F08D4D8008C6280 /* Assets.xcassets */; };
+		448953911F0901F80098D6C3 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448953901F0901F80098D6C3 /* LoginController.swift */; };
 		44C66EE11F079CBD00541921 /* SelezionePercorso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EE01F079CBD00541921 /* SelezionePercorso.swift */; };
 		44C66EE31F079D1900541921 /* CollectionViewPartenza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EE21F079D1900541921 /* CollectionViewPartenza.swift */; };
 		44C66EE51F079D2800541921 /* CollectionViewArrivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C66EE41F079D2800541921 /* CollectionViewArrivo.swift */; };
@@ -51,6 +52,7 @@
 		4410C6571F085633008C6280 /* RickDirectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RickDirectorCell.swift; sourceTree = "<group>"; };
 		4410C6591F0857E8008C6280 /* RickDirectoCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RickDirectoCell2.swift; sourceTree = "<group>"; };
 		4410C65B1F08D4D8008C6280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		448953901F0901F80098D6C3 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		44C66EE01F079CBD00541921 /* SelezionePercorso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelezionePercorso.swift; sourceTree = "<group>"; };
 		44C66EE21F079D1900541921 /* CollectionViewPartenza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPartenza.swift; sourceTree = "<group>"; };
 		44C66EE41F079D2800541921 /* CollectionViewArrivo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewArrivo.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				B87043A01F08358200449323 /* ListaDiDriversViewController.swift */,
 				4410C6551F084EFF008C6280 /* RiepilogoViaggioViewController.swift */,
 				B87043A41F08DD9F00449323 /* FeedbackViewController.swift */,
+				448953901F0901F80098D6C3 /* LoginController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448953911F0901F80098D6C3 /* LoginController.swift in Sources */,
 				44C66EFB1F07C3F600541921 /* ArrivoCell.swift in Sources */,
 				44C66EF91F07BE2E00541921 /* PartenzaCell.swift in Sources */,
 				4410C6581F085633008C6280 /* RickDirectorCell.swift in Sources */,

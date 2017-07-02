@@ -137,6 +137,9 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         }
     }
     
+    
+     
+    
     func sendNewTravel(){
         var par = String(START.latitude) + "_" + String(START.longitude)
         var arrival = String(DESTINATION.latitude) + "_" + String(DESTINATION.longitude)
