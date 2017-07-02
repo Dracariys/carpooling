@@ -34,6 +34,7 @@ var TRENTO = CLLocationCoordinate2D(latitude: 46.0747793 , longitude: 11.1217486
 let currentUser = USERS[Int(arc4random()) % USERS.count].name
 var rejectedUsers : [String] = []
 var acceptedUsers : [(String,Int)] = []
+var distanceNewPercorso = 200000 + Int(arc4random()) % 150000
 
 var START : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:40.849191, longitude: 14.276788)
 var DESTINATION : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 45.926094, longitude: 12.302646)
@@ -58,7 +59,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     }
    
     @IBAction func showAlert(_ sender: Any) {
-        let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo 30 Minuti, Emissioni Co2 evitate : 202.0 (g/km)", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Sei arrivato a destinazione", message: "Tempo \(calculateEfficiency().0) Minuti, Emissioni Co2 evitate : \(calculateEfficiency().1*100) (mg/km)", preferredStyle: .alert)
         
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in self.performSegue(withIdentifier: "backToSignIn", sender: self)})
         alertController.addAction(defaultAction)
@@ -68,6 +69,9 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     
     func messageReceived(manager: MessageServiceManager, message: String) {
         let opCodes = message.components(separatedBy: "_")
+        let part = CLLocationCoordinate2D(latitude: Double(opCodes[1])!, longitude: Double(opCodes[2])!)
+        let arr = CLLocationCoordinate2D(latitude: Double(opCodes[3])!, longitude: Double(opCodes[4])!)
+        getDistance(start: part, arrival: arr)
         var ut : [String] = []
         for user in USERS {
             ut.append(user.name)
@@ -79,20 +83,19 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             ut = ut.filter({$0 != rejected})
         }
         if(ut.contains(opCodes[0])){
-            let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(message). Il viaggio si allungherà di 20km(30:00), ma acquisirai 10pt", preferredStyle: UIAlertControllerStyle.actionSheet)
+            let newLenght = distanceNewPercorso
+            let alert = UIAlertController(title: "New passenger", message: "Vuoi accettare \(opCodes[0]).Il viaggio si allungherà di \(newLenght/500)km, \(newLenght/850):00 minuti, ma acquisirai \(10 + newLenght/1000 % 100)pt", preferredStyle: UIAlertControllerStyle.actionSheet)
             var rect = CGSize(width: 50, height: 50)
             UIGraphicsBeginImageContext(rect)
             let vista = (UIImageView(frame: CGRect(x: 10, y: 10, width: 50, height: 50)))
             vista.image = USERS.filter({$0.name == message}).first?.image
             alert.view.addSubview(vista)
             let action = UIAlertAction(title: "Si!", style: .default, handler: {_ in
-                acceptedUsers.append((message,100000))
-                let part = CLLocationCoordinate2D(latitude: Double(opCodes[1])!, longitude: Double(opCodes[2])!)
-                let arr = CLLocationCoordinate2D(latitude: Double(opCodes[3])!, longitude: Double(opCodes[4])!)
+                acceptedUsers.append((opCodes[0],100000))
                 self.newPlace(part,arr,opCodes[0])
             })
             let action2 = UIAlertAction(title: "No!", style: .cancel, handler: {_ in
-                rejectedUsers.append(message)
+                rejectedUsers.append(opCodes[0])
             })
             alert.addAction(action)
             alert.addAction(action2)
@@ -137,13 +140,13 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
     
     func findAndDraw(){
         if(TRAVEL.count < 1) {
-            self.getDirections(start: START, arrival: DESTINATION)
+            self.getDirectionsAndDraw(start: START, arrival: DESTINATION)
             return
         }
-        self.getDirections(start: START , arrival: TRAVEL[0].0)
+        self.getDirectionsAndDraw(start: START , arrival: TRAVEL[0].0)
         if TRAVEL.count > 1 {
             for k in 0..<TRAVEL.count-1 {
-                self.getDirections(start: TRAVEL[k].0 , arrival: TRAVEL[k+1].0)
+                self.getDirectionsAndDraw(start: TRAVEL[k].0 , arrival: TRAVEL[k+1].0)
                 var point = PlaceAnnotation(location: TRAVEL[k].0, title: "\(k)", subtitle: TRAVEL[k].1)
                 if TRAVEL[k].1.contains("DROP") {
                     point = PlaceAnnotation(location: TRAVEL[k].0, title: "Arrivo Passeggero", subtitle: TRAVEL[k].1.replacingOccurrences(of: "DROP", with: ""))
@@ -155,7 +158,7 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
                 mapView.addAnnotation(point)
             }
         }
-        self.getDirections(start: TRAVEL[TRAVEL.count-1].0 , arrival: DESTINATION)
+        self.getDirectionsAndDraw(start: TRAVEL[TRAVEL.count-1].0 , arrival: DESTINATION)
         var point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1].0, title: "end", subtitle: "nil")
         if TRAVEL[TRAVEL.count-1].1.contains("DROP") {
             point = PlaceAnnotation(location: TRAVEL[TRAVEL.count-1].0, title: "Arrivo Passeggero", subtitle: TRAVEL[TRAVEL.count-1].1.replacingOccurrences(of: "DROP", with: ""))
@@ -247,14 +250,14 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
             veicles[k].1.coordinate = veicles[k].0.position
             mapView.addAnnotation(veicles[k].1)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             print(calculateEfficiency())
             self.askRide("", "")
             self.refreshCar()
         }
     }
     
-    func getDirections(start : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D) {
+    func getDirectionsAndDraw(start : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D) {
         let request = MKDirectionsRequest()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: start))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: arrival))
@@ -272,20 +275,35 @@ class ViewController: UIViewController, MessageServiceManagerDelegate {
         })
     }
     
+    func getDistance(start : CLLocationCoordinate2D, arrival : CLLocationCoordinate2D) {
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: start))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: arrival))
+        request.requestsAlternateRoutes = false
+        request.transportType = .walking
+        let directions = MKDirections(request: request)
+        directions.calculate(completionHandler: {(response, error) in
+            
+            if error != nil {
+                print("Error getting directions")
+            } else {
+                distanceNewPercorso = self.showRoute(response!)
+            }
+        })
+    }
+    
     func drawRoute(_ response: MKDirectionsResponse){
         for route in response.routes {
+            Distances.append(Int(route.distance))
             mapView.add(route.polyline,
                         level: MKOverlayLevel.aboveRoads)
         }
     }
     
-    func showRoute(_ response: MKDirectionsResponse) -> [CLLocationCoordinate2D] {
-        var rou : [CLLocationCoordinate2D] = []
+    func showRoute(_ response: MKDirectionsResponse) -> Int {
+        var rou : Int = 0
         for route in response.routes {
-            Distances.append(Int(route.distance))
-            for step in route.steps {
-                rou.append(step.polyline.coordinate)
-            }
+            rou += (Int(route.distance))
         }
         self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         /*
