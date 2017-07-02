@@ -51,6 +51,9 @@ class CollectionViewArrivo: UIViewController, UICollectionViewDataSource, UIColl
 
         arrivo = nomeDaPassare
 
+        arrivo = self.arrivoLuoghi[indexPath.row]
+        
+        print(arrivo)
         print(arrivo)
     }
     

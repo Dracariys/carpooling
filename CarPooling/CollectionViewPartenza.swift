@@ -70,7 +70,9 @@ class CollectionViewPartenza : UIViewController, UICollectionViewDelegate, UICol
         
         indicePartenza = indexPath.row
         performSegue(withIdentifier: "partenzaToArrivoSegue", sender: nil)
-        
+        partenza = self.partenzaLuoghi[indexPath.row]
+        print(partenza)
+
         
     }
     
